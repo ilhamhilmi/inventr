@@ -6,16 +6,16 @@ import Image from "next/image"
 import showPass from "@/public/password/eye-alt-svgrepo-com.svg"
 import hidePass from "@/public/password/eye-slash-alt-svgrepo-com.svg"
 
-export default function LoginOperator() {
+export default function RegisterOperator() {
 
     const [showPassword, setShowPassword] = useState(false)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
 
-        const res = await fetch("/api/login-operator", {
+        const res = await fetch("/api/register-operator", {
             method: "POST",
 
             headers: {
@@ -33,8 +33,8 @@ export default function LoginOperator() {
         console.log(data);
 
         if (res.ok) {
-            alert("Login berhasil");
-            window.location.href = "/dashboard"
+            alert("Register berhasil");
+            window.location.href = "/login-operator"
         } else {
             alert(data.message);
         }
@@ -45,7 +45,7 @@ export default function LoginOperator() {
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3 shadow-md">
-                        <h1 className="font-arial text-darkb font-semibold text-2xl">Halo!</h1>
+                        <h1 className="font-arial text-darkb font-semibold text-2xl">Daftar!</h1>
                         <input className="border w-full p-2 rounded-md font-arial text-darkb focus:outline-0" placeholder="Nama Pengguna" autoComplete="off" value={username}
                             onChange={(e) => setUsername(e.target.value)} />
                         <div className="relative">
@@ -54,7 +54,7 @@ export default function LoginOperator() {
                                 <Image src={showPassword ? hidePass : showPass} alt={showPassword ? "Hide password" : "Show password"} width={20} height={20} />
                             </button>
                         </div>
-                        <button onClick={handleLogin} className="border rounded-md w-full py-1 font-arial bg-primary border-primary text-white hover:bg-sky-600 duration-200 cursor-pointer">Login</button>
+                        <button onClick={handleRegister} className="border rounded-md w-full py-1 font-arial bg-primary border-primary text-white hover:bg-sky-600 duration-200 cursor-pointer">Daftar Sekarang</button>
                     </div>
                 </div>
             </div>

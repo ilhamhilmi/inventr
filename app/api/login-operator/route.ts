@@ -38,15 +38,17 @@ export async function POST(req: Request) {
     }
 
     // login berhasil
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
-      message: "Login berhasil bang",
-      user: {
-        id: user.id,
-        username: user.username,
-        role: user.role,
-      },
+      message: "Login berhasil",
     });
+
+    response.cookies.set("user_id", String(user.id), {
+      path: "/",
+      maxAge: 60 * 60 * 24,
+    });
+
+    return response;
 
   } catch (error) {
     console.log(error);
