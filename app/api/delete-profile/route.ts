@@ -1,10 +1,10 @@
 import { db } from "@/lib/db";
-import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
-export async function GET(req: Request) {
+export async function DELETE() {
     try {
-        const cookieStore = await cookies();
+        const cookieStore = await cookies()
         const userId = cookieStore.get("user_id")
 
         if (!userId) {
@@ -26,18 +26,24 @@ export async function GET(req: Request) {
             )
         }
 
-        const user = rows[0]
+        const [result]: any = await db.query(
+            "DELETE FROM users WHERE id = ?",
+            [userId.value]
+        )
 
-        return NextResponse.json({
-            id: user.id,
-            username: user.username,
-            password: user.password
+        const response = NextResponse.json({
+            success: true,
+            message: "Akun dihapus",
         })
 
-    } catch (error) {
+        response.cookies.delete("user_id");
+        response.cookies.delete("user_role");
+
+        return response
+    } catch(error){
         return NextResponse.json(
-            { message: "Server Error" },
-            { status: 500 }
+            {message: "Server error"},
+            {status: 500}
         )
     }
 }

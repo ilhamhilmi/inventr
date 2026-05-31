@@ -21,11 +21,27 @@ export default function UserProfile() {
 
         console.log(data)
 
-        if(res.ok){
+        if (res.ok) {
             setUser(data)
-        } else{
+        } else {
             alert(data.message)
         }
+    }
+
+    const handleDelete = async () => {
+        await fetch("api/delete-profile", {
+            method: "DELETE"
+        })
+
+        window.location.href = "/login-operator"
+    }
+
+    const handleLogout = async () => {
+        await fetch("/api/logout", {
+            method: "POST",
+        });
+
+        window.location.href = "/login-operator"
     }
 
     return (
@@ -42,7 +58,9 @@ export default function UserProfile() {
                                 <Image src={showPassword ? hidePass : showPass} alt={showPassword ? "Hide password" : "Show password"} width={20} height={20} />
                             </button>
                         </div>
-                        <button className="border rounded-md w-full py-1 font-arial bg-primary border-primary text-white hover:bg-sky-600 duration-200 cursor-pointer">Edit Akun</button>
+                        <a href="/edit-profile"><button className="border rounded-md w-full py-1 font-arial bg-primary border-primary text-white hover:bg-sky-600 duration-200 cursor-pointer">Edit Akun</button></a>
+                        <button onClick={handleDelete} className="border rounded-md w-full py-1 font-arial bg-red-500 border-red-500 text-white hover:bg-red-700 hover:border-red-700 duration-200 cursor-pointer mt-2">Hapus Akun</button>
+                        <button onClick={handleLogout} className="border rounded-md w-full py-1 font-arial bg-red-500 border-red-500 text-white hover:bg-red-700 hover:border-red-700 duration-200 cursor-pointer mt-2">Logout</button>
                     </div>
                 </div>
             </div>

@@ -2,9 +2,9 @@ import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export async function PUT(req: Request) {
     try {
-        const cookieStore = await cookies();
+        const cookieStore = await cookies()
         const userId = cookieStore.get("user_id")
 
         if (!userId) {
@@ -26,13 +26,25 @@ export async function GET(req: Request) {
             )
         }
 
-        const user = rows[0]
+        const { username, password } = await req.json();
+
+        if (!username || !password) {
+            return NextResponse.json(
+                { message: "Data tidak lengkap" },
+                { status: 400 }
+            );
+        }
+
+        await db.query(
+            "UPDATE users SET username = ?, password = ? WHERE id = ?",
+            [username, password, userId.value]
+        )
 
         return NextResponse.json({
-            id: user.id,
-            username: user.username,
-            password: user.password
+            success: true,
+            message: "Akun berhasil diupdate"
         })
+
 
     } catch (error) {
         return NextResponse.json(

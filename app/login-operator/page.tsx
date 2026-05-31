@@ -34,7 +34,7 @@ export default function LoginOperator() {
 
         if (res.ok) {
             alert("Login berhasil");
-            window.location.href = "/dashboard"
+            window.location.href = "/user-profile"
         } else {
             alert(data.message);
         }
