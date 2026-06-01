@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
+// POST itu buat send data ke database, dan harus request
 export async function POST(req: Request) {
   try {
     const { username, password } = await req.json();
@@ -19,7 +20,7 @@ export async function POST(req: Request) {
       [username]
     );
 
-    // user tidak ditemukan
+    // user tidak ditemukan, ini length bukan index array ya bg
     if (rows.length === 0) {
       return NextResponse.json(
         { message: "Username tidak ditemukan" },
@@ -27,6 +28,7 @@ export async function POST(req: Request) {
       );
     }
 
+    // ini pake index array, bukan length
     const user = rows[0];
 
     // cek password
@@ -44,7 +46,8 @@ export async function POST(req: Request) {
     });
 
     response.cookies.set("user_id", String(user.id), {
-      path: "/",
+      // path / artinya berlaku untuk seluruh page atau web user_id variable yg dibuat untuk memasukkan id dari database. max age itu lama cookie hidup dalam satuan DETIK.
+      path: "/", 
       maxAge: 60 * 60 * 24,
     });
 

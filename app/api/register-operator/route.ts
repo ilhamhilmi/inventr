@@ -5,6 +5,7 @@ export async function POST(req: Request){
     try{
         const {username, password} = await req.json();
 
+        // condiitonal kalo ada form yg ga diisi, ! = falsy, || = atau
         if(!username || !password){
             return NextResponse.json(
                 {message: "Data tidak lengkap"},
@@ -12,10 +13,12 @@ export async function POST(req: Request){
             );
         }
 
+        // cek dlu ni udh ada blm tu username
         const [rows]: any = await db.query(
             "SELECT * FROM users WHERE username = ?", [username]
         );
 
+        // conditional nye
         if(rows.length > 0){
             return NextResponse.json(
                 {message: "Username sudah ada"},
@@ -23,10 +26,12 @@ export async function POST(req: Request){
             )
         }
 
+        // eksekusi bikin akun baru
         await db.query(
             "INSERT INTO users(username, password) VALUES (?, ?)", [username, password]
         )
 
+        // balikin ke FE kalo berhasil derrr
         return NextResponse.json(
             {message: "Daftar Berhasil!"},
             {status: 201}
