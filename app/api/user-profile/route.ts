@@ -7,6 +7,7 @@ export async function GET(req: Request) {
         const cookieStore = await cookies();
         const userId = cookieStore.get("user_id")
 
+        // ! = falsy
         if (!userId) {
             return NextResponse.json(
                 { message: "Belum Login" },

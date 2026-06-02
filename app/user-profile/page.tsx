@@ -50,8 +50,7 @@ export default function UserProfile() {
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3 shadow-md">
                         <h1 className="font-arial text-darkb font-semibold text-2xl">Akun Kamu</h1>
-                        <input value={user?.username || ""} readOnly className="border w-full p-2 rounded-md font-arial text-darkb focus:outline-0" placeholder="Nama Pengguna" autoComplete="off"
-                        />
+                        <input value={user?.username || ""} readOnly className="border w-full p-2 rounded-md font-arial text-darkb focus:outline-0" placeholder="Nama Pengguna" autoComplete="off" />
                         <div className="relative">
                             <input value={user?.password || ""} readOnly type={showPassword ? "text" : "password"} className="border w-full p-2 rounded-md font-arial text-darkb focus:outline-0" placeholder="Kata Sandi" autoComplete="off" />
                             <button type='button' onClick={() => setShowPassword(!showPassword)} className='absolute right-4 top-1/2 -translate-y-1/2'>

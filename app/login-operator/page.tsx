@@ -55,6 +55,7 @@ export default function LoginOperator() {
                             </button>
                         </div>
                         <button onClick={handleLogin} className="border rounded-md w-full py-1 font-arial bg-primary border-primary text-white hover:bg-sky-600 duration-200 cursor-pointer">Login</button>
+                        <a href="/register-operator"><button className="border rounded-md w-full py-1 font-arial bg-green-500 border-green-500 text-white hover:bg-green-700 hover:border-green-700 duration-200 cursor-pointer">Daftar disini</button></a>
                     </div>
                 </div>
             </div>
