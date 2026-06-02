@@ -30,6 +30,10 @@ export default function ListProduct() {
             <p className="mt-2 text-gray-600">
               Jumlah Produk: <span className="font-bold">0</span>
             </p>
+
+            <p className="mt-2 text-gray-600">
+              Harga Produk: <span className="font-bold">0</span>
+            </p>
           </div>
         </div>
 
