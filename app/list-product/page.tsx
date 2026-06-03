@@ -24,6 +24,31 @@ export default function ListProduct() {
     }
   }
 
+  const handleDelete = async (id: number) => {
+    const res = await fetch("api/delete-product", {
+      method: "DELETE",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        id
+      })
+    })
+
+    const data = await res.json()
+
+    console.log(data)
+
+    if (res.ok) {
+      alert("Berhasil hapus produk")
+      getProduct()
+    } else {
+      alert(data.message)
+    }
+  }
+
   return (
     <main className="min-h-screen bg-gray-100 p-6">
       <h1 className="mb-6 text-3xl font-bold">List Produk</h1>
@@ -61,6 +86,9 @@ export default function ListProduct() {
                   {item.price}
                 </span>
               </p>
+            </div>
+            <div className="flex justify-center py-2">
+              <button onClick={() => handleDelete(item.id)} className="border cursor-pointer border-red-500 bg-red-500 rounded-md text-white font-poppins px-2 py-1 hover:bg-red-700 hover:border-red-700 duration-200">Hapus Produk</button>
             </div>
           </div>
 

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET(req:Request){
     try{
         const [rows]: any = await db.query(
-            "SELECT product_name, stock, price FROM products"
+            "SELECT id, product_name, stock, price FROM products"
         )
 
         if(rows.length === 0){
