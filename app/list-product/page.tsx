@@ -59,7 +59,7 @@ export default function ListProduct() {
         {product.map((item: any) => (
 
           <div
-            key={item.product_name}
+            key={item.id}
             className="overflow-hidden rounded-2xl bg-white shadow-md"
           >
 
@@ -70,7 +70,11 @@ export default function ListProduct() {
             <div className="p-4">
 
               <h2 className="text-xl font-semibold">
-                {item.product_name}
+                Id Produk: {item.id}
+              </h2>
+
+              <h2 className="text-xl font-semibold">
+                Nama Produk: {item.product_name}
               </h2>
 
               <p className="mt-2 text-gray-600">

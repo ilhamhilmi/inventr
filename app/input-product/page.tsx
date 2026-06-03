@@ -30,7 +30,7 @@ export default function InputProduct() {
 
         if(res.ok){
             alert("Berhasil tambah produk");
-            // window.location.href = "/list-product"
+            window.location.href = "/list-product"
         } else{
             alert(data.message)
         }
