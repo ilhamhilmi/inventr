@@ -35,7 +35,7 @@ export default function EditProfile() {
     const [password, setPassword] = useState("")
 
     const handleUpdate = async () => {
-        const res = await fetch("api/edit-profile", {
+        const res = await fetch("/api/edit-profile", {
             method: "PUT",
             headers:{
                 "Content-Type": "application/json"
