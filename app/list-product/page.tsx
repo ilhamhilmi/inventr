@@ -94,7 +94,7 @@ export default function ListProduct() {
             </div>
             <div className="flex justify-center py-2 space-x-3">
               <button onClick={() => handleDelete(item.id)} className="border cursor-pointer border-red-500 bg-red-500 rounded-md text-white font-poppins px-2 py-1 hover:bg-red-700 hover:border-red-700 duration-200">Hapus Produk</button>
-              <Link href={`/edit-product/${item.id}`} className="border cursor-pointer border-primary bg-primary rounded-md text-white font-poppins px-2 py-1 hover:bg-sky-700 hover:border-sky-700 duration-200">Edit Produk</Link>
+              <Link href={`/list-product/edit-product/${item.id}`} className="border cursor-pointer border-primary bg-primary rounded-md text-white font-poppins px-2 py-1 hover:bg-sky-700 hover:border-sky-700 duration-200">Edit Produk</Link>
             </div>
           </div>
 
