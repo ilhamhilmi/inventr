@@ -3,12 +3,12 @@
 import Hero from "@/UI components/hero/Hero"
 import RotatingText from "@/UI components/hero/RotatingText/RotatingText";
 import TargetCursor from "@/UI components/TargetCursor/TargetCursor";
+import dynamic from "next/dynamic"
 
 import Image from "next/image";
 import NavbarClient from "@/UI components/Navbar/Navbar";
 import Link from "next/link";
 
-import dynamic from "next/dynamic"
 
 
 export default function Home() {
