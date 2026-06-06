@@ -1,103 +1,70 @@
+"use client"
+
+import Hero from "@/UI components/hero/Hero"
+import RotatingText from "@/UI components/hero/RotatingText/RotatingText";
+import TargetCursor from "@/UI components/TargetCursor/TargetCursor";
+
 import Image from "next/image";
+import NavbarClient from "@/UI components/Navbar/Navbar";
+import Link from "next/link";
+
+import dynamic from "next/dynamic"
+
 
 export default function Home() {
+  const TargetCursor = dynamic(
+    () => import("@/UI components/TargetCursor/TargetCursor"),
+    { ssr: false }
+  )
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div>
+      <NavbarClient />
+      <section className="h-screen items-center justify-center flex pt-16">
+        <TargetCursor
+          spinDuration={4}
+          hideDefaultCursor
+          parallaxOn
+          hoverDuration={0.2}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="h-full inset-0 -z-10" style={{ width: '100%', height: '100%', position: 'absolute' }}>
+          <Hero
+            particleColors={["#ffffff"]}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.3}
+            particleBaseSize={200}
+            moveParticlesOnHover
+            alphaParticles={false}
+            disableRotation={false}
+            pixelRatio={1}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="container mx=auto flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center justify-center space-y-3 max-w-xs xl:max-w-md">
+            <h1 className="font-poppins tracking-wider text-white font-bold text-[50px] text-center xl:text-[68px]">Build your <RotatingText
+              texts={['Inventory', 'Storage', 'Stock']}
+              mainClassName="px-2 sm:px-2 md:px-3 bg-transparent text-blue-400 overflow-hidden justify-center rounded-md"
+              staggerFrom="last"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+              splitBy="characters"
+              auto
+              loop
+            /> space</h1>
+            <h2 className="font-poppins text-slate-500 text-center text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium assumenda laudantium impedit quibusdam asperiores similique.</h2>
+          </div>
+          <div className="flex flex-col xl:flex-row xl:space-y-0 xl:space-x-6 items-center justify-center mt-3.5 space-y-2">
+            <Link href="/register-operator" className="font-poppins text-black px-5 py-2.5 bg-white border-white border cursor-target">Get started</Link>
+            <Link href="" className="font-poppins border px-5 py-2.5 text-white cursor-target">Open your inventory</Link>
+          </div>
+        </div>
+      </section>
+    </div >
   );
 }

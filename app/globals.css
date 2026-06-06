@@ -13,7 +13,7 @@
   --font-mono: var(--font-geist-mono);
   --font-poppins: var(--font-poppins), sans-serif;
 
-  --color-primary: #38bdf8;
+  --color-primary: #00d5be;
   --color-secondary: #64748b;
   --color-dark: #0f172a;
   --color-darkb: #1d293d;
@@ -22,7 +22,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: ;
+    --background: #000000 ;
     --foreground: ;
   }
 }
