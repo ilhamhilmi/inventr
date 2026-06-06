@@ -76,7 +76,7 @@ function DockItem({
             onFocus={() => isHovered.set(1)}
             onBlur={() => isHovered.set(0)}
             onClick={onClick}
-            className={`relative inline-flex items-center justify-center rounded-2xl bg-white/5 backdrop-blur-2xl hover:bg-primary hover:text-white cursor-pointer border-neutral-700 border-2 shadow-md ${className}`}
+            className={`relative inline-flex items-center justify-center rounded-2xl bg-white backdrop-blur-2xl cursor-target border-neutral-700 border shadow-md ${className}`}
             tabIndex={0}
             role="button"
             aria-haspopup="true"
@@ -154,7 +154,11 @@ export default function Dock({
     const height = useSpring(heightRow, spring);
 
     return (
-        <motion.div style={{ height, scrollbarWidth: 'none' }} className="mx-2 flex max-w-full items-center">
+        <motion.div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50"
+            style={{
+                height,
+                scrollbarWidth: 'none'
+            }}>
             <motion.div
                 onMouseMove={({ pageX }) => {
                     isHovered.set(1);
@@ -164,7 +168,7 @@ export default function Dock({
                     isHovered.set(0);
                     mouseX.set(Infinity);
                 }}
-                className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4`}
+                className={`${className} absolute bottom-2 bg-white/5 backdrop-blur left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border pb-2 px-4`}
                 style={{ height: panelHeight }}
                 role="toolbar"
                 aria-label="Application dock"

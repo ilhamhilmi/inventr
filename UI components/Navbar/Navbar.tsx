@@ -28,7 +28,7 @@ export default function NavbarClient() {
             {/* Mobile Start */}
             <header className="xl:hidden w-full z-50 fixed top-0 left-0 flex items-center justify-center px-4">
                 <nav ref={menuRef} className="xl:w-3/4 w-full px-6 py-4 bg-transparent flex items-center justify-between relative">
-                    <a href="/" className="text-white  font-poppins tracking-widest text-xl">Inventra</a>
+                    <a href="/" className="text-white font-poppins tracking-[15px] font-extralight text-xl uppercase">inventr</a>
                     <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
                         <span className={`w-6.5 h-0.5 my-2 block bg-white transform transition-all duration-300 ${isOpen ? 'rotate-46 translate-y-1.25' : 'rotate-0 translate-y-0 scale-100'}`}></span>
                         <span className={`w-6.5 h-0.5 my-2 block bg-white transform transition-all duration-300 ${isOpen ? '-rotate-46 -translate-y-1.25' : 'rotate-0 translate-y-0'}`}></span>
@@ -47,7 +47,7 @@ export default function NavbarClient() {
             <header className="hidden w-full z-50 fixed top-0 left-0 xl:flex items-center justify-center">
                 <nav className="bg-transparent w-full px-6 py-4 flex items-center justify-between">
                     <div>
-                        <a href="#home" className="text-white text-xl font-poppins tracking-widest font-semibold uppercase cursor-target">inventra</a>
+                        <a href="/" className="text-white text-xl font-poppins tracking-[15px] font-extralight uppercase">inventr</a>
                     </div>
                     <div className="space-x-12">
                         <a href="" className="font-poppins tracking-wider border border-white px-3 py-1.5 cursor-target text-white font-montserrat text-md">Features</a>
