@@ -51,7 +51,7 @@ export default function NavbarClient() {
                     </div>
                     <div className="space-x-12">
                         <a href="" className="font-poppins tracking-wider border border-white px-3 py-1.5 cursor-target text-white font-montserrat text-md">Features</a>
-                        <a href="/login-operator" className="font-poppins tracking-wider border border-white px-3 py-1.5 cursor-target text-black bg-white font-montserrat text-md">Login</a>
+                        <a href="/login-operator" className="font-poppins tracking-wider border px-3 py-1.5 cursor-target text-black bg-white font-montserrat text-md">Login</a>
                     </div>
                 </nav>
             </header>
