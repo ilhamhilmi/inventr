@@ -36,7 +36,7 @@ export default function NavbarClient() {
         <div>
             {/* Mobile Start */}
             <header className="xl:hidden w-full z-50 fixed top-0 left-0 flex items-center justify-center px-4">
-                <nav ref={menuRef} className="xl:w-3/4 w-full px-6 py-4 bg-transparent flex items-center justify-between relative">
+                <nav ref={menuRef} className="xl:w-3/4 w-full p-6 bg-transparent flex items-center justify-between relative">
                     <a href="/" className="text-white font-poppins tracking-[15px] font-extralight text-xl uppercase">inventr</a>
                     <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
                         <span className={`w-6.5 h-0.5 my-2 block bg-white transform transition-all duration-300 ${isOpen ? 'rotate-46 translate-y-1.25' : 'rotate-0 translate-y-0 scale-100'}`}></span>
@@ -54,7 +54,7 @@ export default function NavbarClient() {
 
             {/* Desktop Start */}
             <header className="hidden w-full z-50 fixed top-0 left-0 xl:flex items-center justify-center">
-                <nav className="bg-transparent w-full px-6 py-4 flex items-center justify-between">
+                <nav className="bg-transparent w-full p-6 flex items-center justify-between">
                     <div>
                         <Link href="/" className="text-white text-xl font-poppins tracking-[15px] font-extralight uppercase">inventr</Link>
                     </div>
@@ -70,9 +70,9 @@ export default function NavbarClient() {
                             </Link>
                         </div>
                     ) : (
-                        <div className="space-x-12">
-                            <Link href="" className="font-poppins tracking-wider px-3 py-1.5 cursor-target text-white text-md">Features</Link>
-                            <Link href="/login-operator" className="font-poppins tracking-wider px-3 py-1.5 cursor-target text-white text-md">Login</Link>
+                        <div className="flex items-center space-x-12">
+                            <Link href="" className="font-poppins tracking-wider px-3 py-2 cursor-target text-white text-md  border border-white">Features</Link>
+                            <Link href="/login-operator" className="font-poppins tracking-wider px-3 py-2 cursor-target text-black text-md border border-white bg-white">Login</Link>
                         </div>
                     )}
                 </nav>
