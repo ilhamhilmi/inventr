@@ -5,6 +5,8 @@ import Image from "next/image"
 
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
+import DockClient from "@/UI components/dock/DockClient/page"
+
 
 export default function InputProduct() {
     const [product_name, setProduct_name] = useState("")
@@ -42,6 +44,7 @@ export default function InputProduct() {
 
     return (
         <section className="items-center flex justify-center h-screen">
+            <DockClient />
             <TargetCursorClient />
             <LightRaysClient />
             <div className="container mx-auto">
