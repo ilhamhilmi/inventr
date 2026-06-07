@@ -19,7 +19,7 @@ export default function Inventory() {
     }, [])
 
     const getProduct = async () => {
-        const res = await fetch("api/inventory")
+        const res = await fetch("/api/inventory")
         const data = await res.json()
 
         console.log(data)
@@ -32,7 +32,7 @@ export default function Inventory() {
     }
 
     const handleDelete = async (id: number) => {
-        const res = await fetch("api/delete-product", {
+        const res = await fetch("/api/delete-product", {
             method: "DELETE",
 
             headers: {
@@ -56,6 +56,43 @@ export default function Inventory() {
         }
     }
 
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        getProfile()
+    }, [])
+
+    const getProfile = async () => {
+        const res = await fetch("/api/user-profile")
+        const data = await res.json()
+
+        console.log(data)
+
+        if (res.ok) {
+            setUser(data)
+        } else {
+            alert(data.message)
+        }
+    }
+
+    const [total, setTotal] = useState<any>()
+    const totalProduct = async () => {
+        const res = await fetch("/api/total-count")
+        const data = await res.json()
+
+        console.log(data)
+
+        if (res.ok) {
+            setTotal(data.total)
+        } else {
+            alert(data.message)
+        }
+    }
+
+    useEffect(() => {
+        totalProduct()
+    }, [])
+
     return (
         <div>
             <DockClient />
@@ -66,19 +103,22 @@ export default function Inventory() {
                 <header className="flex flex-col items-center justify-center text-center space-y-3 py-3">
                     <Link href="/" className="text-white tracking-[15px] font-extralight">INVENTR</Link>
                     <div className="">
-                        <SplitText
-                            text="Hello again, username!"
-                            className="text-3xl text-white font-semibold font-poppins text-center tracking-wide"
-                            delay={50}
-                            duration={1.5}
-                            ease="power3.out"
-                            splitType="chars"
-                            from={{ opacity: 0, y: 40 }}
-                            to={{ opacity: 1, y: 0 }}
-                            threshold={0.1}
-                            rootMargin="-100px"
-                            textAlign="center"
-                        />
+                        {user && (
+                            <SplitText
+                                key={user.username}
+                                text={`Hello again, ${user.username}!`}
+                                className="text-3xl text-white font-semibold font-poppins text-center tracking-wide"
+                                delay={50}
+                                duration={1.5}
+                                ease="power3.out"
+                                splitType="chars"
+                                from={{ opacity: 0, y: 40 }}
+                                to={{ opacity: 1, y: 0 }}
+                                threshold={0.1}
+                                rootMargin="-100px"
+                                textAlign="center"
+                            />
+                        )}
                     </div>
                     <div className="flex space-x-5 w-full xl:w-2/3 justify-center items-center px-4">
                         <ElectricBorder
@@ -87,7 +127,7 @@ export default function Inventory() {
                             chaos={0.06}
                             className="bg-white/5 border border-slate-600 backdrop-blur-md px-4 py-2.5 rounded-md w-1/2">
                             <h1 className="font-poppins text-secondary text-lg">Total Products</h1>
-                            <h1 className="font-poppins text-white text-lg xl:text-3xl">2</h1>
+                            <h1 className="font-poppins text-white text-lg xl:text-3xl">{total}</h1>
                         </ElectricBorder>
                         <ElectricBorder
                             color="#38bdf8"

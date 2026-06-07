@@ -32,11 +32,11 @@ export default function UserProfile() {
     }
 
     const handleDelete = async () => {
-        await fetch("api/delete-profile", {
+        await fetch("/api/delete-profile", {
             method: "DELETE"
         })
 
-        window.location.href = "/login-operator"
+        window.location.href = "/"
     }
 
     const handleLogout = async () => {
