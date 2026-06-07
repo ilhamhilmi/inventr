@@ -8,6 +8,8 @@ import hidePass from "@/public/password/eye-slash-alt-svgrepo-com.svg"
 
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
+import DockClient from "@/UI components/dock/DockClient/page"
+
 
 export default function EditProfile() {
     const [showPassword, setShowPassword] = useState(false)
@@ -64,6 +66,7 @@ export default function EditProfile() {
         <section className="items-center flex justify-center h-screen">
             <TargetCursorClient />
             <LightRaysClient />
+            <DockClient />
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white/5 backdrop-blur-xl rounded-md text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3">
