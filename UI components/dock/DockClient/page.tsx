@@ -2,7 +2,7 @@
 
 import Dock from "@/UI components/dock/Dock";
 import { useRouter } from "next/navigation";
-import { VscHome, VscAccount, VscAdd } from "react-icons/vsc"
+import { VscHome, VscAccount, VscAdd, VscArchive } from "react-icons/vsc"
 
 
 export default function DockClient() {
@@ -12,6 +12,10 @@ export default function DockClient() {
     const items = [
         { icon: <VscHome className="text-black" size={20} />, 
         label: 'Home', 
+        onClick: () => router.push("/"),
+    },
+        { icon: <VscArchive className="text-black" size={20} />, 
+        label: 'Inventory', 
         onClick: () => router.push("/inventory"),
     },
         { icon: <VscAdd className="text-black" size={20} />, label: 'Add Products', onClick: () => router.push("/input-product") },
