@@ -1,10 +1,15 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function GET(req:Request){
     try{
+        const cookieStore = await cookies();
+        const userId = cookieStore.get("user_id")?.value
+        
         const [rows]: any = await db.query(
-            "SELECT id, product_name, stock, price FROM products"
+            "SELECT id, product_name, stock, price FROM products WHERE user_id = ?",
+            [userId]
         )
 
         if(rows.length === 0){
