@@ -6,16 +6,10 @@ import Image from "next/image"
 import showPass from "@/public/password/eye-alt-svgrepo-com.svg"
 import hidePass from "@/public/password/eye-slash-alt-svgrepo-com.svg"
 
-import dynamic from "next/dynamic"
-import Hero from "@/UI components/hero/Hero"
+import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
 
 export default function UserProfile() {
-
-    const TargetCursor = dynamic(
-        () => import("@/UI components/TargetCursor/TargetCursor"),
-        { ssr: false }
-    )
-
     const [showPassword, setShowPassword] = useState(false)
     const [user, setUser] = useState<any>(null);
 
@@ -54,25 +48,8 @@ export default function UserProfile() {
 
     return (
         <section className="items-center flex justify-center h-screen">
-            <TargetCursor
-                spinDuration={4}
-                hideDefaultCursor
-                parallaxOn
-                hoverDuration={0.2}
-            />
-            <div className="h-full inset-0 -z-10" style={{ width: '100%', height: '100%', position: 'absolute' }}>
-                <Hero
-                    particleColors={["#ffffff"]}
-                    particleCount={200}
-                    particleSpread={10}
-                    speed={0.3}
-                    particleBaseSize={200}
-                    moveParticlesOnHover
-                    alphaParticles={false}
-                    disableRotation={false}
-                    pixelRatio={1}
-                />
-            </div>
+            <TargetCursorClient />
+            <LightRaysClient />
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white/5 backdrop-blur-xl rounded-md text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3">

@@ -1,31 +1,17 @@
 "use client"
 
-import Dock from "@/UI components/dock/Dock";
-import { VscHome, VscAccount, VscAdd } from "react-icons/vsc"
-import LightRays from "@/UI components/LightRays/page";
-import dynamic from "next/dynamic"
+import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import ElectricBorder from "@/UI components/ElectricBorder/ElectricBorder";
 
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import SplitText from "@/UI components/SplitText/SplitText";
-
+import DockClient from "@/UI components/dock/DockClient/page";
+import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient";
 
 
 export default function Inventory() {
-
-    const TargetCursor = dynamic(
-        () => import("@/UI components/TargetCursor/TargetCursor"),
-        { ssr: false }
-    )
-
-    const items = [
-        { icon: <VscHome className="text-black" size={20} />, label: 'Home', onClick: () => alert('Home!') },
-        { icon: <VscAdd className="text-black" size={20} />, label: 'Add Products', onClick: () => alert('Settings!') },
-        { icon: <VscAccount href="/user-profile" className="text-black" size={20} />, label: 'Profile', onClick: () => alert('Profile!') },
-    ];
-
     const [product, setProduct] = useState<any>([])
 
     useEffect(() => {
@@ -33,7 +19,7 @@ export default function Inventory() {
     }, [])
 
     const getProduct = async () => {
-        const res = await fetch("api/list-product")
+        const res = await fetch("api/inventory")
         const data = await res.json()
 
         console.log(data)
@@ -72,36 +58,10 @@ export default function Inventory() {
 
     return (
         <div>
-            <Dock
-                items={items}
-                panelHeight={70}
-                baseItemSize={50}
-                magnification={75}
-            />
+            <DockClient />
             <section className="min-h-screen pt-32 pb-32 relative">
-                <TargetCursor
-                    spinDuration={4}
-                    hideDefaultCursor
-                    parallaxOn
-                    hoverDuration={0.2}
-                />
-                <div className="fixed inset-0 -z-10" style={{}}>
-                    <LightRays
-                        raysOrigin="bottom-center"
-                        raysColor="#ffffff"
-                        raysSpeed={1}
-                        lightSpread={2}
-                        rayLength={5}
-                        followMouse={true}
-                        mouseInfluence={0.1}
-                        noiseAmount={0}
-                        distortion={0.2}
-                        className="custom-rays w-full h-full"
-                        pulsating={false}
-                        fadeDistance={1}
-                        saturation={1}
-                    />
-                </div>
+                <TargetCursorClient />
+                <LightRaysClient />
 
                 <header className="flex flex-col items-center justify-center text-center space-y-3 py-3">
                     <Link href="/" className="text-white tracking-[15px] font-extralight">INVENTR</Link>
@@ -149,7 +109,7 @@ export default function Inventory() {
                                 <h1 className="font-poppins text-secondary text-lg">Stock: <span className="text-white">{item.stock}</span></h1>
                                 <h1 className="font-poppins text-secondary text-lg">Price: <span className="text-white">{item.price}</span></h1>
                                 <div className="flex items-center justify-center space-x-8">
-                                    <Link href={`/list-product/edit-product/${item.id}`} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-green-500 hover:border-green-500 hover:text-white duration-200">Edit Produk</Link>
+                                    <Link href={`/inventory/edit-product/${item.id}`} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-green-500 hover:border-green-500 hover:text-white duration-200">Edit Produk</Link>
                                     <button onClick={() => handleDelete(item.id)} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-red-500 hover:border-red-500 hover:text-white duration-200">Hapus Produk</button>
                                 </div>
                             </div>

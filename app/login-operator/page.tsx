@@ -6,17 +6,11 @@ import Image from "next/image"
 import showPass from "@/public/password/eye-alt-svgrepo-com.svg"
 import hidePass from "@/public/password/eye-slash-alt-svgrepo-com.svg"
 
-import dynamic from "next/dynamic"
-import Hero from "@/UI components/hero/Hero"
+import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import HeroClient from "@/UI components/hero/HeroClient/page"
 
 
 export default function LoginOperator() {
-
-    const TargetCursor = dynamic(
-        () => import("@/UI components/TargetCursor/TargetCursor"),
-        { ssr: false }
-    )
-
     const [showPassword, setShowPassword] = useState(false)
 
     const [username, setUsername] = useState("")
@@ -51,24 +45,9 @@ export default function LoginOperator() {
 
     return (
         <section className="items-center flex justify-center h-screen">
-            <TargetCursor
-                spinDuration={4}
-                hideDefaultCursor
-                parallaxOn
-                hoverDuration={0.2}
-            />
+            <TargetCursorClient />
             <div className="h-full inset-0 -z-10" style={{ width: '100%', height: '100%', position: 'absolute' }}>
-                <Hero
-                    particleColors={["#ffffff"]}
-                    particleCount={200}
-                    particleSpread={10}
-                    speed={0.3}
-                    particleBaseSize={200}
-                    moveParticlesOnHover
-                    alphaParticles={false}
-                    disableRotation={false}
-                    pixelRatio={1}
-                />
+                <HeroClient />
             </div>
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center">
