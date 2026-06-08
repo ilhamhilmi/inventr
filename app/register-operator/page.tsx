@@ -3,8 +3,8 @@
 import { useState } from "react"
 import Image from "next/image"
 
-import showPass from "@/public/password/eye-alt-svgrepo-com.svg"
-import hidePass from "@/public/password/eye-slash-alt-svgrepo-com.svg"
+import showPass from "@/public/password/eye-svgrepo-com.svg"
+import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
 
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import HeroClient from "@/UI components/hero/HeroClient/page"
