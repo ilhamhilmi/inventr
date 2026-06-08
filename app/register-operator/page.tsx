@@ -50,10 +50,10 @@ export default function RegisterOperator() {
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white/5 backdrop-blur-xl rounded-md text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3">
                         <h1 className="font-poppins text-white font-semibold text-2xl tracking-wider">Create New Account</h1>
-                        <input className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" placeholder="Nama Pengguna" autoComplete="off" value={username}
+                        <input className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" placeholder="Username" autoComplete="off" value={username}
                             onChange={(e) => setUsername(e.target.value)} />
                         <div className="relative">
-                            <input type={showPassword ? "text" : "password"} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" placeholder="Kata Sandi" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type={showPassword ? "text" : "password"} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} />
                             <button type='button' onClick={() => setShowPassword(!showPassword)} className='absolute right-4 top-1/2 -translate-y-1/2'>
                                 <Image src={showPassword ? hidePass : showPass} alt={showPassword ? "Hide password" : "Show password"} width={20} height={20} />
                             </button>

@@ -11,7 +11,7 @@ export async function PUT(req: Request, { params }: any) {
 
         return NextResponse.json({
             success: true,
-            message: "Produk berhasil di update"
+            message: "Product berhasil di update"
         })
         
     } catch (error) {

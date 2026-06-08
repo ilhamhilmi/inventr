@@ -49,7 +49,7 @@ export default function Inventory() {
         console.log(data)
 
         if (res.ok) {
-            alert("Berhasil hapus produk")
+            alert("Berhasil hapus Product")
             getProduct()
         } else {
             alert(data.message)
@@ -149,8 +149,8 @@ export default function Inventory() {
                                 <h1 className="font-poppins text-secondary text-lg">Stock: <span className="text-white">{item.stock}</span></h1>
                                 <h1 className="font-poppins text-secondary text-lg">Price: <span className="text-white">{item.price}</span></h1>
                                 <div className="flex items-center justify-center space-x-8">
-                                    <Link href={`/inventory/edit-product/${item.id}`} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-green-500 hover:border-green-500 hover:text-white duration-200">Edit Produk</Link>
-                                    <button onClick={() => handleDelete(item.id)} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-red-500 hover:border-red-500 hover:text-white duration-200">Hapus Produk</button>
+                                    <Link href={`/inventory/edit-product/${item.id}`} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-green-500 hover:border-green-500 hover:text-white duration-200">Edit Product</Link>
+                                    <button onClick={() => handleDelete(item.id)} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-red-500 hover:border-red-500 hover:text-white duration-200">Hapus Product</button>
                                 </div>
                             </div>
                         </div>

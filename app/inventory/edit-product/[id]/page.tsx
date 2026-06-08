@@ -52,7 +52,7 @@ export default function EditProduct() {
         console.log(data)
 
         if (res.ok) {
-            alert("Berhasil Update Produk")
+            alert("Berhasil Update Product")
             window.location.href = "/inventory"
         } else {
             alert(data.message)
@@ -66,11 +66,11 @@ export default function EditProduct() {
             <div className="container mx-auto">
                 <div className="flex flex-col items-center justify-center">
                     <div className="bg-white/5 backdrop-blur-xl rounded-md text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3">
-                        <h1 className="font-poppins text-white font-semibold text-2xl tracking-wider">Edit Produk</h1>
-                        <input value={productName} onChange={(e) => setProductName(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Nama Produk" />
-                        <input value={stock} onChange={(e) => setStock(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Jumlah Produk" />
-                        <input value={price} onChange={(e) => setPrice(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Harga Produk" />
-                        <button onClick={handleUpdate} className="border rounded-md w-full py-1 font-arial bg-green-500 border-green-500 cursor-target text-white font-poppins cursor-pointer">Edit Produk</button>
+                        <h1 className="font-poppins text-white font-semibold text-2xl tracking-wider">Edit Product</h1>
+                        <input value={productName} onChange={(e) => setProductName(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Product Name" />
+                        <input value={stock} onChange={(e) => setStock(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Stock" />
+                        <input value={price} onChange={(e) => setPrice(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Price" />
+                        <button onClick={handleUpdate} className="border rounded-md w-full py-1 font-arial bg-green-500 border-green-500 cursor-target text-white font-poppins cursor-pointer">Edit Product</button>
                     </div>
                 </div>
             </div>

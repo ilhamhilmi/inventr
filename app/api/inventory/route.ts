@@ -14,7 +14,7 @@ export async function GET(req:Request){
 
         if(rows.length === 0){
             return NextResponse.json(
-                {message: "Tidak ada data produk"},
+                {message: "Tidak ada data Product"},
                 {status: 404}
             )
         }

@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
         if (rows.length > 0) {
             return NextResponse.json(
-                { message: "Nama produk sudah ada" },
+                { message: "Product Name sudah ada" },
                 { status: 409 }
             )
         }
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
         )
 
         return NextResponse.json(
-            { message: "Berhasil tambah produk" },
+            { message: "Berhasil tambah Product" },
             { status: 201 }
         )
 
