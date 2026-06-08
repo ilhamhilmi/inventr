@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Inventr",
+  title: "Inventr | Build your inventory space",
   description: "Build your inventory space",
 };
 
