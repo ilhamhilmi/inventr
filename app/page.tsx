@@ -21,7 +21,7 @@ export default function Home() {
             <h1 className="font-poppins tracking-wider text-white font-bold text-[50px] text-center xl:text-[68px]">Build your <ElectricBorder color="#38bdf8"
               speed={0.9}
               chaos={0.15}><RotatingTextClient /></ElectricBorder>space.</h1>
-            <h2 className="font-poppins text-slate-500 text-center text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium assumenda laudantium impedit quibusdam asperiores similique.</h2>
+            <h2 className="font-poppins text-slate-500 text-center text-sm">Manage items, track stock, and build your personal inventory space with speed, clarity, and efficiency.</h2>
           </div>
           <div className="flex flex-col xl:flex-row xl:space-y-0 xl:space-x-6 items-center justify-center mt-3.5 space-y-2">
             <Link href="/register-operator" className="font-poppins text-black px-5 py-2.5 bg-white border-white border cursor-target">Get started</Link>
