@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(){
     const response = NextResponse.json({
         success: true,
-        message: "logout berhasil",
+        message: "Logout Successfully",
     })
 
     response.cookies.delete("user_id");

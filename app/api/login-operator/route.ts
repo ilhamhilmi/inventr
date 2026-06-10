@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     // user tidak ditemukan, ini length bukan index array ya bg
     if (rows.length === 0) {
       return NextResponse.json(
-        { message: "Username tidak ditemukan" },
+        { message: "Username not found" },
         { status: 404 }
       );
     }
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     // cek password
     if (password !== user.password) {
       return NextResponse.json(
-        { message: "Password salah!" },
+        { message: "Incorrect Password!" },
         { status: 401 }
       );
     }
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     // login berhasil
     const response = NextResponse.json({
       success: true,
-      message: "Login berhasil",
+      message: "Login successfully",
     });
 
     response.cookies.set("user_id", String(user.id), {

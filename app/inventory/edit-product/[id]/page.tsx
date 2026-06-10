@@ -28,7 +28,7 @@ export default function EditProduct() {
             setStock(data.stock)
             setPrice(data.price)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 

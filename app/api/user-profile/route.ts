@@ -10,7 +10,7 @@ export async function GET(req: Request) {
         // ! = falsy
         if (!userId) {
             return NextResponse.json(
-                { message: "Belum Login" },
+                { message: "Unauthorized" },
                 { status: 401 }
             )
         }
@@ -22,7 +22,7 @@ export async function GET(req: Request) {
 
         if (rows.length === 0) {
             return NextResponse.json(
-                { message: "Akun tidak ditemukan" },
+                { message: "Account not found" },
                 { status: 404 }
             )
         }

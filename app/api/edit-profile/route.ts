@@ -9,7 +9,7 @@ export async function PUT(req: Request) {
 
         if (!userId) {
             return NextResponse.json(
-                { message: "Belum Login" },
+                { message: "Unauthorized" },
                 { status: 401 }
             )
         }
@@ -21,7 +21,7 @@ export async function PUT(req: Request) {
 
         if (rows.length === 0) {
             return NextResponse.json(
-                { message: "Akun tidak ditemukan" },
+                { message: "Account not found" },
                 { status: 404 }
             )
         }
@@ -30,7 +30,7 @@ export async function PUT(req: Request) {
 
         if (!username || !password) {
             return NextResponse.json(
-                { message: "Data tidak lengkap" },
+                { message: "Incomplete data" },
                 { status: 400 }
             );
         }
@@ -42,7 +42,7 @@ export async function PUT(req: Request) {
 
         return NextResponse.json({
             success: true,
-            message: "Akun berhasil diupdate"
+            message: "Account updated"
         })
 
 

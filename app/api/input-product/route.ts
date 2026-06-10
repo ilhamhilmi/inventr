@@ -10,21 +10,21 @@ export async function POST(req: Request) {
 
         if (!product_name || !stock || !price) {
             return NextResponse.json(
-                { message: "Data tidak lengkap" },
+                { message: "Incomplete data" },
                 { status: 400 }
             )
         }
 
         if (stock < 1) {
             return NextResponse.json(
-                { message: "Stok tidak boleh kosong" },
+                { message: "Must fill the stock" },
                 { status: 400 }
             )
         }
 
         if (!userId) {
             return NextResponse.json(
-                { message: "Belum Login" },
+                { message: "Unauthorized" },
                 { status: 401 }
             )
         }
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
         if (rows.length > 0) {
             return NextResponse.json(
-                { message: "Product Name sudah ada" },
+                { message: "Product already exist" },
                 { status: 409 }
             )
         }
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
         )
 
         return NextResponse.json(
-            { message: "Berhasil tambah Product" },
+            { message: "Input Product Successfully" },
             { status: 201 }
         )
 

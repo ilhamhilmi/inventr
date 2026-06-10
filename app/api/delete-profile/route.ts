@@ -9,7 +9,7 @@ export async function DELETE() {
 
         if (!userId) {
             return NextResponse.json(
-                { message: "Belum Login" },
+                { message: "Unauthorized" },
                 { status: 401 }
             )
         }
@@ -21,7 +21,7 @@ export async function DELETE() {
 
         if (rows.length === 0) {
             return NextResponse.json(
-                { message: "Akun tidak ditemukan" },
+                { message: "Account not found" },
                 { status: 404 }
             )
         }
@@ -39,7 +39,7 @@ export async function DELETE() {
 
         const response = NextResponse.json({
             success: true,
-            message: "Akun dihapus",
+            message: "Account Successfully Deleted",
         })
 
         response.cookies.delete("user_id");

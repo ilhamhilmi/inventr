@@ -12,7 +12,7 @@ export async function DELETE(req: Request) {
         )
 
         return NextResponse.json(
-            {message: "Product berhasil dihapus"},
+            {message: "Product Deleted"},
             {status: 200}
         )
 

@@ -15,7 +15,7 @@ export async function GET(req: Request, { params }: any) {
         // conditional kalo productnya gaada
         if(product === undefined){
             return NextResponse.json(
-                {message: "Product tidak ada"},
+                {message: "Product not found"},
                 {status: 404}
             )
         }

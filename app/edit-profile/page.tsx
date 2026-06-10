@@ -34,7 +34,7 @@ export default function EditProfile() {
             setUsername(data.username)
             setPassword(data.password)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 
@@ -58,7 +58,7 @@ export default function EditProfile() {
         console.log(data)
 
         if (res.ok) {
-            toast.success("Berhasil Update")
+            toast.success("Account updated")
             router.push ("/user-profile")
         } else {
             toast.error(data.message)

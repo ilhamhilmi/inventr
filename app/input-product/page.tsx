@@ -40,7 +40,7 @@ export default function InputProduct() {
         console.log(data)
 
         if (res.ok) {
-            toast.success("Berhasil tambah Product");
+            toast.success("Successfully input product");
             router.push("/inventory")
         } else {
             toast.error(data.message)

@@ -31,7 +31,7 @@ export default function UserProfile() {
         if (res.ok) {
             setUser(data)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 

@@ -8,7 +8,7 @@ export async function POST(req: Request) {
         // condiitonal kalo ada form yg ga diisi, ! = falsy, || = atau
         if (!username || !password) {
             return NextResponse.json(
-                { message: "Data tidak lengkap" },
+                { message: "Incomplete data" },
                 { status: 400 }
             );
         }
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         // conditional nye
         if (rows.length > 0) {
             return NextResponse.json(
-                { message: "Username sudah ada" },
+                { message: "Username already exist" },
                 { status: 409 }
             )
         }
@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
         // balikin ke Frontend kalo berhasil derrr
         return NextResponse.json(
-            { message: "Daftar Berhasil!" },
+            { message: "Account Successfully Registered" },
             { status: 201 }
         )
     } catch (error) {

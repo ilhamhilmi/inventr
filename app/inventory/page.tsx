@@ -8,10 +8,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import SplitText from "@/UI components/SplitText/SplitText";
 import DockClient from "@/UI components/dock/DockClient/page";
-import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient";
+import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
+
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 
 export default function Inventory() {
+    const router = useRouter()
     const [product, setProduct] = useState<any>([])
 
     useEffect(() => {
@@ -27,7 +31,7 @@ export default function Inventory() {
         if (res.ok) {
             setProduct(data)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 
@@ -49,10 +53,10 @@ export default function Inventory() {
         console.log(data)
 
         if (res.ok) {
-            alert("Berhasil hapus Product")
+            toast.success("Product deleted")
             getProduct()
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 
@@ -71,7 +75,7 @@ export default function Inventory() {
         if (res.ok) {
             setUser(data)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 
@@ -85,7 +89,7 @@ export default function Inventory() {
         if (res.ok) {
             setTotal(data.total)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 
@@ -104,7 +108,7 @@ export default function Inventory() {
         if (res.ok) {
             setLowStock(data.lowStock)
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 
