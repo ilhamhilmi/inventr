@@ -9,7 +9,11 @@ import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import HeroClient from "@/UI components/hero/HeroClient/page"
 
+import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
+
 export default function RegisterOperator() {
+    const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
 
     const [username, setUsername] = useState("")
@@ -35,10 +39,10 @@ export default function RegisterOperator() {
         console.log(data);
 
         if (res.ok) {
-            alert("Register berhasil");
-            window.location.href = "/login-operator"
+            toast.success("Account created successfully");
+            router.push("/login-operator")
         } else {
-            alert(data.message);
+            toast.error(data.message);
         }
     };
 

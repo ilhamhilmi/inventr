@@ -9,8 +9,12 @@ import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import HeroClient from "@/UI components/hero/HeroClient/page"
 
+import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
+
 
 export default function LoginOperator() {
+    const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
 
     const [username, setUsername] = useState("")
@@ -36,10 +40,10 @@ export default function LoginOperator() {
         console.log(data);
 
         if (res.ok) {
-            alert("Login berhasil");
-            window.location.href = "/inventory"
+            toast.success("Welcome Back!");
+            router.push("/inventory")
         } else {
-            alert(data.message);
+            toast.error(data.message);
         }
     };
 
