@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 import showPass from "@/public/password/eye-svgrepo-com.svg"
 import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
@@ -12,6 +14,7 @@ import DockClient from "@/UI components/dock/DockClient/page"
 
 
 export default function EditProfile() {
+    const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
     const [user, setUser] = useState<any>(null);
 
@@ -55,10 +58,10 @@ export default function EditProfile() {
         console.log(data)
 
         if (res.ok) {
-            alert("Berhasil Update")
-            window.location.href = "/user-profile"
+            toast.success("Berhasil Update")
+            router.push ("/user-profile")
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 

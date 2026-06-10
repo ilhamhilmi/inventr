@@ -1,6 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
+
+
 import Image from "next/image"
 
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
@@ -12,6 +16,8 @@ export default function InputProduct() {
     const [product_name, setProduct_name] = useState("")
     const [stock, setStock] = useState("")
     const [price, setPrice] = useState("")
+
+    const router = useRouter()
 
     const handleSubmit = async () => {
         const res = await fetch("api/input-product", {
@@ -30,13 +36,14 @@ export default function InputProduct() {
 
         const data = await res.json()
 
+
         console.log(data)
 
         if (res.ok) {
-            alert("Berhasil tambah Product");
-            window.location.href = "/inventory"
+            toast.success("Berhasil tambah Product");
+            router.push("/inventory")
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 

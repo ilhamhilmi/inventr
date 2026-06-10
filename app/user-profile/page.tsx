@@ -10,7 +10,11 @@ import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/
 import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
 import DockClient from "@/UI components/dock/DockClient/page"
 
+import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
+
 export default function UserProfile() {
+    const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
     const [user, setUser] = useState<any>(null);
 
@@ -32,11 +36,18 @@ export default function UserProfile() {
     }
 
     const handleDelete = async () => {
-        await fetch("/api/delete-profile", {
+        const res = await fetch("api/delete-profile", {
             method: "DELETE"
         })
+        const data = await res.json()
+        console.log(data)
 
-        window.location.href = "/"
+        if (res.ok) {
+            toast.success("Account Deleted")
+            router.push("/")
+        } else {
+            toast.error(data.message)
+        }
     }
 
     const handleLogout = async () => {
@@ -44,7 +55,7 @@ export default function UserProfile() {
             method: "POST",
         });
 
-        window.location.href = "/"
+        router.push("/")
     }
 
     return (

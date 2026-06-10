@@ -4,10 +4,12 @@ import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
 import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
 import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 export default function EditProduct() {
 
-
+    const router = useRouter()
     // const [product, setProduct] = useState<any>({})
     const params = useParams()
 
@@ -52,10 +54,10 @@ export default function EditProduct() {
         console.log(data)
 
         if (res.ok) {
-            alert("Berhasil Update Product")
-            window.location.href = "/inventory"
+            toast.success("Product Updated")
+            router.push ("/inventory")
         } else {
-            alert(data.message)
+            toast.error(data.message)
         }
     }
 

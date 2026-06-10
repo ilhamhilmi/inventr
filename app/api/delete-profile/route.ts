@@ -26,7 +26,13 @@ export async function DELETE() {
             )
         }
 
-        const [result]: any = await db.query(
+        const [result]: any = 
+        await db.query(
+            "DELETE FROM products WHERE user_id = ?",
+            [userId.value]
+        )
+        
+        await db.query(
             "DELETE FROM users WHERE id = ?",
             [userId.value]
         )
