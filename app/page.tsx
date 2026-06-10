@@ -18,7 +18,7 @@ export default function Home() {
         <HeroClient />
         <div className="container mx=auto flex flex-col justify-center items-center">
           <div className="flex flex-col items-center justify-center space-y-3 max-w-xs xl:max-w-md">
-            <h1 className="font-poppins tracking-wider text-white font-bold text-[50px] text-center xl:text-[68px]">Build your <ElectricBorder color="#38bdf8"
+            <h1 className="font-poppins tracking-widest text-white font-bold text-[50px] text-center xl:text-[68px]">Build your <ElectricBorder color="#38bdf8"
               speed={0.9}
               chaos={0.15}><RotatingTextClient /></ElectricBorder>space.</h1>
             <h2 className="font-poppins text-slate-500 text-center text-sm">Manage items, track stock, and build your personal inventory space with speed, clarity, and efficiency.</h2>

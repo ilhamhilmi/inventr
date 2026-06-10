@@ -93,6 +93,26 @@ export default function Inventory() {
         totalProduct()
     }, [])
 
+
+    const [lowStock, setLowStock] = useState()
+    const lowStockProduct = async () => {
+        const res = await fetch("/api/low-stock")
+        const data = await res.json()
+
+        console.log(data)
+
+        if (res.ok) {
+            setLowStock(data.lowStock)
+        } else {
+            alert(data.message)
+        }
+    }
+
+     useEffect(() => {
+        lowStockProduct()
+    }, [])
+
+
     return (
         <div>
             <DockClient />
@@ -135,7 +155,7 @@ export default function Inventory() {
                             chaos={0.06}
                             className="bg-white/5 border border-slate-600 backdrop-blur-md px-4 py-2.5 rounded-md w-1/2">
                             <h1 className="font-poppins text-secondary text-lg">Low Stock</h1>
-                            <h1 className="font-poppins text-white text-lg xl:text-3xl">2</h1>
+                            <h1 className="font-poppins text-white text-lg xl:text-3xl">{lowStock}</h1>
                         </ElectricBorder>
                     </div>
                 </header>
