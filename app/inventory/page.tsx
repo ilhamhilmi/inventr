@@ -13,6 +13,9 @@ import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRays
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
+import Image from "next/image";
+import SearchIcon from "@/public/Search/search-svgrepo-com.svg"
+
 
 export default function Inventory() {
     const router = useRouter()
@@ -112,10 +115,25 @@ export default function Inventory() {
         }
     }
 
-     useEffect(() => {
+    useEffect(() => {
         lowStockProduct()
     }, [])
 
+    const [search, setSearch] = useState("")
+
+    const searchProducts = async () => {
+
+        const res = await fetch(`/api/inventory?search=${search}`)
+
+        const data = await res.json()
+
+        if (res.ok) {
+            setProduct(data)
+        } else {
+            toast.error("Product not found")
+        }
+
+    }
 
     return (
         <div>
@@ -161,6 +179,10 @@ export default function Inventory() {
                             <h1 className="font-poppins text-secondary text-lg">Low Stock</h1>
                             <h1 className="font-poppins text-white text-lg xl:text-3xl">{lowStock}</h1>
                         </ElectricBorder>
+                    </div>
+                    <div className="w-full flex justify-center items-center px-4 space-x-2">
+                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="focus:outline-white border border-secondary bg-white/5 backdrop-blur-xl rounded-xl font-poppins text-white px-3 py-1.5 w-full xl:w-1/2 cursor-target" placeholder="Find something.." />
+                        <button onClick={searchProducts} className="border border-secondary p-2 rounded-full cursor-target bg-white/5 backdrop-blur-xl"><Image src={SearchIcon} alt="SearchIcon" width={20} height={20} /></button>
                     </div>
                 </header>
 
