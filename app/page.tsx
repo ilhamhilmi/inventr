@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <NavbarClient />
       <section className="h-screen items-center justify-center flex pt-16">
-        {/* <TargetCursorClient /> */}
+        <TargetCursorClient />
         <HeroClient />
         <div className="container mx=auto flex flex-col justify-center items-center">
           <div className="flex flex-col items-center justify-center space-y-3 max-w-xs xl:max-w-md">

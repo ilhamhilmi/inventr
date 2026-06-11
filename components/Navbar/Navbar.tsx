@@ -35,8 +35,8 @@ export default function NavbarClient() {
     return (
         <div>
             {/* Mobile Start */}
-            <header className="xl:hidden w-full z-50 fixed top-0 left-0 flex items-center justify-center px-4">
-                <nav ref={menuRef} className="xl:w-3/4 w-full p-6 bg-transparent flex items-center justify-between relative">
+            <header className="xl:hidden fixed inset-x-0 top-0 z-50 left-0 flex items-center justify-center px-4">
+                <nav ref={menuRef} className="xl:w-3/4 max-w-full p-6 bg-transparent flex items-center justify-between relative">
                     <Link href="/" className="text-white font-poppins tracking-[15px] font-extralight text-xl uppercase">inventr</Link>
                     <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
                         <span className={`w-6.5 h-0.5 my-2 block bg-white transform transition-all duration-300 ${isOpen ? 'rotate-46 translate-y-1.25' : 'rotate-0 translate-y-0 scale-100'}`}></span>
