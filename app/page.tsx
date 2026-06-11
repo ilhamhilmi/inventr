@@ -15,7 +15,7 @@ export default function Home() {
       <NavbarClient />
       <section className="h-screen items-center justify-center flex pt-16">
         <TargetCursorClient />
-        <HeroClient />
+        {/* <HeroClient /> */}
         <div className="container mx=auto flex flex-col justify-center items-center">
           <div className="flex flex-col items-center justify-center space-y-3 max-w-xs xl:max-w-md">
             <h1 className="font-poppins tracking-widest text-white font-bold text-[50px] text-center xl:text-[68px]">Build your <ElectricBorder color="#38bdf8"
