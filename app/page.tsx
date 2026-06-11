@@ -5,9 +5,6 @@ import NavbarClient from "@/components/Navbar/Navbar";
 import Link from "next/link";
 import RotatingTextClient from "@/components/hero/RotatingText/RotatingTextClient/RotatingTextClient";
 
-
-
-
 export default function Home() {
   return (
     <div>
