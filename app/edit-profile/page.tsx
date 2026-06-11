@@ -8,9 +8,9 @@ import toast from "react-hot-toast"
 import showPass from "@/public/password/eye-svgrepo-com.svg"
 import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
 
-import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
-import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
-import DockClient from "@/UI components/dock/DockClient/page"
+import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import LightRaysClient from "@/components/LightRays/LightRaysClient/LightRaysClient"
+import DockClient from "@/components/dock/DockClient/page"
 
 
 export default function EditProfile() {

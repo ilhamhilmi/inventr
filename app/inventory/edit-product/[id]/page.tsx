@@ -2,8 +2,8 @@
 
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
-import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
-import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import LightRaysClient from "@/components/LightRays/LightRaysClient/LightRaysClient"
+import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 

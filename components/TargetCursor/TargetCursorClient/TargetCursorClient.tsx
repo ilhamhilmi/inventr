@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 
 export default function TargetCursorClient() {
     const TargetCursor = dynamic(
-        () => import("@/UI components/TargetCursor/TargetCursor"),
+        () => import("@/components/TargetCursor/TargetCursor"),
         { ssr: false }
     )
     return (

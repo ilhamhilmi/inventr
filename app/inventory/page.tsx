@@ -1,14 +1,14 @@
 "use client"
 
-import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
-import ElectricBorder from "@/UI components/ElectricBorder/ElectricBorder";
+import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import ElectricBorder from "@/components/ElectricBorder/ElectricBorder";
 
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import SplitText from "@/UI components/SplitText/SplitText";
-import DockClient from "@/UI components/dock/DockClient/page";
-import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
+import SplitText from "@/components/SplitText/SplitText";
+import DockClient from "@/components/dock/DockClient/page";
+import LightRaysClient from "@/components/LightRays/LightRaysClient/LightRaysClient"
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client"
 
-import LightRays from "@/UI components/LightRays/page";
+import LightRays from "@/components/LightRays/page";
 
 export default function LightRaysClient() {
     return (

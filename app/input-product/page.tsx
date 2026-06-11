@@ -7,9 +7,9 @@ import toast from "react-hot-toast"
 
 import Image from "next/image"
 
-import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
-import LightRaysClient from "@/UI components/LightRays/LightRaysClient/LightRaysClient"
-import DockClient from "@/UI components/dock/DockClient/page"
+import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import LightRaysClient from "@/components/LightRays/LightRaysClient/LightRaysClient"
+import DockClient from "@/components/dock/DockClient/page"
 
 
 export default function InputProduct() {

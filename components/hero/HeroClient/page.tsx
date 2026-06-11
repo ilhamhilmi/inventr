@@ -1,6 +1,6 @@
 "use client"
 
-import Hero from "@/UI components/hero/Hero"
+import Hero from "@/components/hero/Hero"
 
 export default function HeroClient() {
     return (

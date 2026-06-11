@@ -1,6 +1,6 @@
 "use client"
 
-import RotatingText from "@/UI components/hero/RotatingText/RotatingText";
+import RotatingText from "@/components/hero/RotatingText/RotatingText";
 
 export default function RotatingTextClient() {
     return (

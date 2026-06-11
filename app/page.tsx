@@ -1,10 +1,10 @@
 "use client"
-import HeroClient from "@/UI components/hero/HeroClient/page";
-import TargetCursorClient from "@/UI components/TargetCursor/TargetCursorClient/TargetCursorClient"
-import ElectricBorder from "@/UI components/ElectricBorder/ElectricBorder";
-import NavbarClient from "@/UI components/Navbar/Navbar";
+import HeroClient from "@/components/hero/HeroClient/page";
+import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
+import ElectricBorder from "@/components/ElectricBorder/ElectricBorder";
+import NavbarClient from "@/components/Navbar/Navbar";
 import Link from "next/link";
-import RotatingTextClient from "@/UI components/hero/RotatingText/RotatingTextClient/RotatingTextClient";
+import RotatingTextClient from "@/components/hero/RotatingText/RotatingTextClient/RotatingTextClient";
 
 
 

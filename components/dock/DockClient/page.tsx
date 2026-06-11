@@ -1,6 +1,6 @@
 "use client"
 
-import Dock from "@/UI components/dock/Dock";
+import Dock from "@/components/dock/Dock";
 import { useRouter } from "next/navigation";
 import { VscHome, VscAccount, VscAdd, VscArchive } from "react-icons/vsc"
 
