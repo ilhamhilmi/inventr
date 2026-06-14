@@ -41,8 +41,7 @@ export default function LoginOperator() {
 
         if (res.ok) {
             toast.success("Welcome Back!");
-            router.push("/inventory")
-            router.refresh
+            window.location.href = "/inventory"
         } else {
             toast.error(data.message);
         }

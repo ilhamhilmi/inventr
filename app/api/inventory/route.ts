@@ -40,7 +40,7 @@ export async function GET(req: Request) {
         if (rows.length === 0) {
 
             return NextResponse.json(
-                { message: "Product not found" },
+                { message: "You don't have any product" },
                 { status: 404 }
             );
 
