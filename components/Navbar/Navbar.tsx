@@ -45,7 +45,7 @@ export default function NavbarClient() {
 
                     <div className={`bg-white/5 backdrop-blur-xl shadow-md border border-slate-200 absolute left-0 top-full mt-3.5 rounded-4xl w-full px-6 transition-all duration-250 ease-in-out text-center flex flex-col space-y-5 ${isOpen ? 'max-h-100 opacity-100 py-4 pointer-events-auto visible' : 'max-h-0 opacity-0 py-0 pointer-event-none invisible'}`}>
                         {isLoggedIn ? (<Link onClick={() => setIsOpen(false)} href="/user-profile" className="text-white font-semibold text-xl">Account Information</Link>) : (<Link onClick={() => setIsOpen(false)} href="/login-operator" className="text-white font-semibold text-xl">Login</Link>)}
-                        <Link onClick={() => setIsOpen(false)} href="/" className="text-white font-semibold text-xl">Features</Link>
+                        <Link onClick={() => setIsOpen(false)} href="/features" className="text-white font-semibold text-xl">Features</Link>
                     </div>
 
                 </nav>
@@ -64,14 +64,14 @@ export default function NavbarClient() {
                     </div> */}
                     {isLoggedIn ? (
                         <div className="flex items-center space-x-12">
-                            <Link href="/" className="font-poppins tracking-wider px-3 py-2 cursor-target text-white text-md border border-white">Features</Link>
+                            <Link href="/features" className="font-poppins tracking-wider px-3 py-2 cursor-target text-white text-md border border-white">Features</Link>
                             <Link href="/user-profile" className=" cursor-target text-white text-md border border-white bg-white p-2">
                                 <Image src={UserIcon} alt="UserIcon" width={20} height={20} />
                             </Link>
                         </div>
                     ) : (
                         <div className="flex items-center space-x-12">
-                            <Link href="/" className="font-poppins tracking-wider px-3 py-2 cursor-target text-white text-md  border border-white">Features</Link>
+                            <Link href="/features" className="font-poppins tracking-wider px-3 py-2 cursor-target text-white text-md  border border-white">Features</Link>
                             <Link href="/login-operator" className="font-poppins tracking-wider px-3 py-2 cursor-target text-black text-md border border-white bg-white">Login</Link>
                         </div>
                     )}
