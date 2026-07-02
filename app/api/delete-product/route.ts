@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(req: Request) {
     try {
-        const { id } = await req.json();
+        const { id }: {id: number} = await req.json();
 
-        const [rows]: any = await db.query(
+        const [rows] = await db.query(
             "DELETE FROM products WHERE id = ?",
             [id]
         )
