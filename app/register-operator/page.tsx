@@ -2,12 +2,10 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 import showPass from "@/public/password/eye-svgrepo-com.svg"
 import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
-
-import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
-import HeroClient from "@/components/hero/HeroClient/page"
 
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
@@ -47,26 +45,78 @@ export default function RegisterOperator() {
     };
 
     return (
-        <section className="items-center flex justify-center h-screen">
-            <TargetCursorClient />
-            <HeroClient />
-            <div className="container mx-auto">
-                <div className="flex flex-col items-center justify-center">
-                    <div className="bg-white/5 backdrop-blur-xl rounded-md text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3">
-                        <h1 className="font-poppins text-white font-semibold text-2xl tracking-wider">Create New Account</h1>
-                        <input className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" placeholder="Username" autoComplete="off" value={username}
-                            onChange={(e) => setUsername(e.target.value)} />
-                        <div className="relative">
-                            <input type={showPassword ? "text" : "password"} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" placeholder="Password" autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            <button type='button' onClick={() => setShowPassword(!showPassword)} className='absolute right-4 top-1/2 -translate-y-1/2'>
-                                <Image src={showPassword ? hidePass : showPass} alt={showPassword ? "Hide password" : "Show password"} width={20} height={20} />
-                            </button>
+        <div className="min-h-screen bg-white text-black font-['Inter',sans-serif] flex items-center justify-center">
+            {/* Decorative shapes */}
+            <div className="absolute top-10 right-10 w-40 h-40 bg-neo-cyan border-[3px] border-black -z-10" />
+            <div className="absolute bottom-10 left-10 w-52 h-52 bg-neo-lime border-[3px] border-black -z-10" />
+            <div className="absolute top-1/3 left-20 w-24 h-24 bg-neo-yellow border-[3px] border-black -z-10" />
+
+            {/* Back link */}
+            <Link href="/" className="absolute top-6 left-6 font-bold text-sm uppercase tracking-wider border-[3px] border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-100">
+                &larr; Back
+            </Link>
+
+            <div className="w-full max-w-md mx-auto px-4">
+                <div className="border-[3px] border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8">
+                    {/* Logo */}
+                    <div className="flex items-center justify-center gap-2 mb-6">
+                        <div className="w-10 h-10 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-lg">
+                            I
                         </div>
-                        <button onClick={handleRegister} className="border rounded-md w-full py-1 font-arial bg-white border-white cursor-target text-black font-poppins">Create</button>
-                        <a href="/login-operator"><button className="text-white px-2 py-1 cursor-target font-poppins">Login</button></a>
+                        <span className="font-black text-2xl tracking-tight">INVENTR</span>
+                    </div>
+
+                    <h1 className="font-black text-2xl uppercase text-center mb-6">Create New Account</h1>
+
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block font-bold text-xs uppercase tracking-wider mb-1">Username</label>
+                            <input
+                                className="w-full border-[3px] border-black p-3 font-medium text-sm focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                                placeholder="Choose a username"
+                                autoComplete="off"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block font-bold text-xs uppercase tracking-wider mb-1">Password</label>
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    className="w-full border-[3px] border-black p-3 font-medium text-sm focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all pr-12"
+                                    placeholder="Create a password"
+                                    autoComplete="off"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <button
+                                    type='button'
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className='absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 border-[2px] border-black flex items-center justify-center hover:bg-gray-100 transition-colors'
+                                >
+                                    <Image src={showPassword ? hidePass : showPass} alt={showPassword ? "Hide password" : "Show password"} width={18} height={18} />
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={handleRegister}
+                            className="w-full py-3 bg-neo-lime border-[3px] border-black font-black text-sm uppercase tracking-wider shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
+                        >
+                            Create Account
+                        </button>
+
+                        <p className="text-center text-sm font-medium">
+                            Already have an account?{" "}
+                            <Link href="/login-operator" className="font-black underline underline-offset-2 hover:text-neo-pink transition-colors">
+                                Log in
+                            </Link>
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }

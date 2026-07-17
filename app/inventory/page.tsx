@@ -1,24 +1,12 @@
 "use client"
 
-import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
-import ElectricBorder from "@/components/ElectricBorder/ElectricBorder";
-
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import SplitText from "@/components/SplitText/SplitText";
-import DockClient from "@/components/dock/DockClient/page";
-import LightRaysClient from "@/components/LightRays/LightRaysClient/LightRaysClient"
-
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-
 import Image from "next/image";
 import SearchIcon from "@/public/Search/search-svgrepo-com.svg"
 
-
 export default function Inventory() {
-    const router = useRouter()
     const [product, setProduct] = useState<any>([])
 
     useEffect(() => {
@@ -136,71 +124,142 @@ export default function Inventory() {
     }
 
     return (
-        <div>
-            <DockClient />
-            <section className="min-h-screen pt-32 pb-32 relative">
-                <TargetCursorClient />
-                <LightRaysClient />
+        <div className="min-h-screen bg-white text-black font-['Inter',sans-serif]">
+            {/* Top Navigation Bar */}
+            <nav className="border-b-[3px] border-black bg-white sticky top-0 z-40">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between h-16">
+                        <Link href="/" className="flex items-center gap-2">
+                            <div className="w-8 h-8 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-sm">
+                                I
+                            </div>
+                            <span className="font-black text-lg tracking-tight">INVENTR</span>
+                        </Link>
 
-                <header className="flex flex-col items-center justify-center text-center space-y-3 py-3">
-                    <Link href="/" className="text-white tracking-[15px] font-extralight">INVENTR</Link>
-                    <div className="">
-                        {user && (
-                            <SplitText
-                                key={user.username}
-                                text={`Hello again, ${user.username}!`}
-                                className="text-3xl text-white font-semibold font-poppins text-center tracking-wide"
-                                delay={50}
-                                duration={1.5}
-                                ease="power3.out"
-                                splitType="chars"
-                                from={{ opacity: 0, y: 40 }}
-                                to={{ opacity: 1, y: 0 }}
-                                threshold={0.1}
-                                rootMargin="-100px"
-                                textAlign="center"
-                            />
-                        )}
-                    </div>
-                    <div className="flex space-x-5 w-full xl:w-2/3 justify-center items-center px-4">
-                        <ElectricBorder
-                            color="#38bdf8"
-                            speed={0.9}
-                            chaos={0.06}
-                            className="bg-white/5 border border-slate-600 backdrop-blur-md px-4 py-2.5 rounded-md w-1/2">
-                            <h1 className="font-poppins text-secondary text-lg">Total Products</h1>
-                            <h1 className="font-poppins text-white text-lg xl:text-3xl">{total}</h1>
-                        </ElectricBorder>
-                        <ElectricBorder
-                            color="#38bdf8"
-                            speed={0.9}
-                            chaos={0.06}
-                            className="bg-white/5 border border-slate-600 backdrop-blur-md px-4 py-2.5 rounded-md w-1/2">
-                            <h1 className="font-poppins text-secondary text-lg">Low Stock</h1>
-                            <h1 className="font-poppins text-white text-lg xl:text-3xl">{lowStock}</h1>
-                        </ElectricBorder>
-                    </div>
-                    <div className="w-full flex justify-center items-center px-4 space-x-2">
-                        <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" className="focus:outline-white border border-secondary bg-white/5 backdrop-blur-xl rounded-xl font-poppins text-white px-3 py-1.5 w-full xl:w-1/2 cursor-target" placeholder="Find something.." />
-                        <button onClick={searchProducts} className="border border-secondary p-2 rounded-full cursor-target bg-white/5 backdrop-blur-xl"><Image src={SearchIcon} alt="SearchIcon" width={20} height={20} /></button>
-                    </div>
-                </header>
-
-                <div className="grid grid-cols-1 xl:grid-cols-3 justify-items-center w-full">
-                    {product.map((item: any) => (
-                        <div key={item.id} className="w-full p-4">
-                            <div className="bg-white/5 border border-slate-600 backdrop-blur-md px-4 py-2.5 rounded-md space-y-4">
-                                <h1 className="font-poppins text-secondary text-lg">Product ID: <span className="text-sky-400">{item.id}</span></h1>
-                                <h1 className="font-poppins text-secondary text-lg">Product Name: <span className="text-white">{item.product_name}</span></h1>
-                                <h1 className="font-poppins text-secondary text-lg">Stock: <span className="text-white">{item.stock}</span></h1>
-                                <h1 className="font-poppins text-secondary text-lg">Price: <span className="text-white">{item.price}</span></h1>
-                                <div className="flex items-center justify-center space-x-8">
-                                    <Link href={`/inventory/edit-product/${item.id}`} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-green-500 hover:border-green-500 hover:text-white duration-200">Edit Product</Link>
-                                    <button onClick={() => handleDelete(item.id)} className="border cursor-pointer cursor-target border-white bg-white rounded-md text-black font-poppins px-3 py-1.5 hover:bg-red-500 hover:border-red-500 hover:text-white duration-200">Hapus Product</button>
-                                </div>
+                        <div className="flex items-center gap-3">
+                            <Link href="/input-product"
+                                className="font-bold text-xs uppercase tracking-wider px-4 py-2 bg-neo-yellow border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-100">
+                                + Add Product
+                            </Link>
+                            <div className="flex items-center gap-2">
+                                <Link href="/user-profile"
+                                    className="w-8 h-8 border-[3px] border-black flex items-center justify-center font-black text-xs hover:bg-gray-100 transition-colors">
+                                    U
+                                </Link>
+                                <Link href="/"
+                                    className="w-8 h-8 border-[3px] border-black flex items-center justify-center font-black text-xs hover:bg-gray-100 transition-colors">
+                                    H
+                                </Link>
                             </div>
                         </div>
-                    ))}
+                    </div>
+                </div>
+            </nav>
+
+            <section className="py-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Header */}
+                    <div className="mb-8">
+                        <h1 className="text-4xl sm:text-5xl font-black uppercase tracking-tight">
+                            Inventory
+                            {user && <span className="block text-lg font-bold mt-1 opacity-60 normal-case">Hello again, {user.username}!</span>}
+                        </h1>
+                    </div>
+
+                    {/* Stats Cards */}
+                    <div className="grid grid-cols-2 gap-4 mb-8 max-w-lg">
+                        <div className="border-[3px] border-black p-4 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                            <p className="text-xs font-bold uppercase tracking-wider opacity-60">Total Products</p>
+                            <p className="text-3xl font-black mt-1">{total || 0}</p>
+                        </div>
+                        <div className="border-[3px] border-black p-4 bg-neo-pink shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                            <p className="text-xs font-bold uppercase tracking-wider text-white/80">Low Stock</p>
+                            <p className="text-3xl font-black mt-1 text-white">{lowStock || 0}</p>
+                        </div>
+                    </div>
+
+                    {/* Search */}
+                    <div className="flex gap-2 mb-8 max-w-xl">
+                        <input
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            type="text"
+                            className="flex-1 border-[3px] border-black p-3 font-medium text-sm focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                            placeholder="Find something..."
+                            onKeyDown={(e) => e.key === "Enter" && searchProducts()}
+                        />
+                        <button
+                            onClick={searchProducts}
+                            className="px-4 border-[3px] border-black bg-black hover:bg-gray-800 transition-colors"
+                        >
+                            <Image src={SearchIcon} alt="Search" width={20} height={20} className="invert" />
+                        </button>
+                    </div>
+
+                    {/* Product Grid */}
+                    {product.length === 0 ? (
+                        <div className="text-center py-16">
+                            <div className="inline-block border-[3px] border-black p-6 bg-neo-yellow shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                                <p className="font-black text-lg uppercase">No products yet</p>
+                                <p className="font-medium text-sm mt-2 opacity-70">Start by adding your first product!</p>
+                                <Link href="/input-product"
+                                    className="inline-block mt-4 px-6 py-3 border-[3px] border-black bg-white font-black text-xs uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all duration-100">
+                                    Add Product
+                                </Link>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {product.map((item: any) => (
+                                <div
+                                    key={item.id}
+                                    className="border-[3px] border-black bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
+                                >
+                                    {/* Color bar */}
+                                    <div className="h-2 bg-neo-cyan border-b-[3px] border-black" />
+
+                                    <div className="p-5 space-y-3">
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-xs font-bold uppercase tracking-wider opacity-50">ID #{item.id}</span>
+                                            {item.stock <= 5 && (
+                                                <span className="text-[10px] font-black uppercase px-2 py-1 bg-neo-pink border-[2px] border-black">
+                                                    Low Stock
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        <h3 className="font-black text-xl uppercase tracking-tight">{item.product_name}</h3>
+
+                                        <div className="grid grid-cols-2 gap-3 pt-2 border-t-[2px] border-black/10">
+                                            <div>
+                                                <p className="text-[10px] font-bold uppercase tracking-wider opacity-50">Stock</p>
+                                                <p className="font-black text-lg">{item.stock}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] font-bold uppercase tracking-wider opacity-50">Price</p>
+                                                <p className="font-black text-lg">${item.price}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex gap-2 pt-2">
+                                            <Link
+                                                href={`/inventory/edit-product/${item.id}`}
+                                                className="flex-1 text-center py-2 border-[3px] border-black font-bold text-xs uppercase tracking-wider bg-neo-yellow shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
+                                            >
+                                                Edit
+                                            </Link>
+                                            <button
+                                                onClick={() => handleDelete(item.id)}
+                                                className="flex-1 py-2 border-[3px] border-black font-bold text-xs uppercase tracking-wider hover:bg-neo-red hover:text-white hover:border-neo-red shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all duration-100"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </div>

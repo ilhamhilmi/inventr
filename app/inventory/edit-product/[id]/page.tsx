@@ -2,15 +2,13 @@
 
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
-import LightRaysClient from "@/components/LightRays/LightRaysClient/LightRaysClient"
-import TargetCursorClient from "@/components/TargetCursor/TargetCursorClient/TargetCursorClient"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 import toast from "react-hot-toast"
 
 export default function EditProduct() {
 
     const router = useRouter()
-    // const [product, setProduct] = useState<any>({})
     const params = useParams()
 
     useEffect(() => {
@@ -62,21 +60,71 @@ export default function EditProduct() {
     }
 
     return (
-        <section className="items-center flex justify-center h-screen">
-            <TargetCursorClient />
-            <LightRaysClient />
-            <div className="container mx-auto">
-                <div className="flex flex-col items-center justify-center">
-                    <div className="bg-white/5 backdrop-blur-xl rounded-md text-center xl:w-1/3 w-2/3 px-6 py-10 space-y-3">
-                        <h1 className="font-poppins text-white font-semibold text-2xl tracking-wider">Edit Product</h1>
-                        <input value={productName} onChange={(e) => setProductName(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Product Name" />
-                        <input value={stock} onChange={(e) => setStock(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Stock" />
-                        <input value={price} onChange={(e) => setPrice(e.target.value)} className="cursor-target border border-slate-500 w-full p-2 rounded-md font-arial text-white focus:border-white" autoComplete="off" placeholder="Price" />
-                        <button onClick={handleUpdate} className="border rounded-md w-full py-1 font-arial bg-green-500 border-green-500 cursor-target text-white font-poppins cursor-pointer">Edit Product</button>
+        <div className="min-h-screen bg-white text-black font-['Inter',sans-serif] flex items-center justify-center">
+            {/* Decorative shapes */}
+            <div className="absolute top-10 right-10 w-40 h-40 bg-neo-pink border-[3px] border-black -z-10" />
+            <div className="absolute bottom-10 left-10 w-52 h-52 bg-neo-cyan border-[3px] border-black -z-10" />
+
+            {/* Back link */}
+            <Link href="/inventory" className="absolute top-6 left-6 font-bold text-sm uppercase tracking-wider border-[3px] border-black px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-100">
+                &larr; Back
+            </Link>
+
+            <div className="w-full max-w-md mx-auto px-4">
+                <div className="border-[3px] border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8">
+                    {/* Logo */}
+                    <div className="flex items-center justify-center gap-2 mb-6">
+                        <div className="w-10 h-10 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-lg">
+                            I
+                        </div>
+                        <span className="font-black text-2xl tracking-tight">INVENTR</span>
+                    </div>
+
+                    <h1 className="font-black text-2xl uppercase text-center mb-6">Edit Product</h1>
+
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block font-bold text-xs uppercase tracking-wider mb-1">Product Name</label>
+                            <input
+                                value={productName}
+                                onChange={(e) => setProductName(e.target.value)}
+                                className="w-full border-[3px] border-black p-3 font-medium text-sm focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                                autoComplete="off"
+                                placeholder="Product Name"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block font-bold text-xs uppercase tracking-wider mb-1">Stock</label>
+                            <input
+                                value={stock}
+                                onChange={(e) => setStock(e.target.value)}
+                                className="w-full border-[3px] border-black p-3 font-medium text-sm focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                                autoComplete="off"
+                                placeholder="Stock"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block font-bold text-xs uppercase tracking-wider mb-1">Price</label>
+                            <input
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                className="w-full border-[3px] border-black p-3 font-medium text-sm focus:outline-none focus:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
+                                autoComplete="off"
+                                placeholder="Price"
+                            />
+                        </div>
+
+                        <button
+                            onClick={handleUpdate}
+                            className="w-full py-3 bg-neo-yellow border-[3px] border-black font-black text-sm uppercase tracking-wider shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
+                        >
+                            Update Product
+                        </button>
                     </div>
                 </div>
             </div>
-        </section>
-
+        </div>
     )
 }
