@@ -19,7 +19,7 @@ export default function NeoHero() {
         <div className="max-w-4xl mx-auto text-center">
           {/* Tag */}
           <div className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-neo-yellow mb-6">
-            v2.0 &mdash; Multi User System
+            Multi User System
           </div>
 
           {/* Headline */}

@@ -8,15 +8,39 @@ export default function NeoFooter() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-neo-yellow border-[2px] border-white flex items-center justify-center font-black text-sm text-black">
-                I
-              </div>
               <span className="font-black text-xl">INVENTR</span>
             </div>
             <p className="text-sm font-medium opacity-60 max-w-md">
               A multi-user inventory management system built with speed, clarity,
               and efficiency.
             </p>
+          </div>
+
+          {/* Company Links */}
+          <div>
+            <h4 className="font-black text-sm uppercase tracking-wider mb-4 text-neo-pink">
+              Company
+            </h4>
+            <div className="space-y-2">
+              <Link
+                href="/"
+                className="block text-sm font-medium opacity-60 hover:opacity-100 transition-opacity"
+              >
+                About
+              </Link>
+              <Link
+                href="/"
+                className="block text-sm font-medium opacity-60 hover:opacity-100 transition-opacity"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/"
+                className="block text-sm font-medium opacity-60 hover:opacity-100 transition-opacity"
+              >
+                Terms
+              </Link>
+            </div>
           </div>
 
           {/* Product Links */}
@@ -52,32 +76,7 @@ export default function NeoFooter() {
             </div>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h4 className="font-black text-sm uppercase tracking-wider mb-4 text-neo-pink">
-              Company
-            </h4>
-            <div className="space-y-2">
-              <Link
-                href="/"
-                className="block text-sm font-medium opacity-60 hover:opacity-100 transition-opacity"
-              >
-                About
-              </Link>
-              <Link
-                href="/"
-                className="block text-sm font-medium opacity-60 hover:opacity-100 transition-opacity"
-              >
-                Privacy
-              </Link>
-              <Link
-                href="/"
-                className="block text-sm font-medium opacity-60 hover:opacity-100 transition-opacity"
-              >
-                Terms
-              </Link>
-            </div>
-          </div>
+
         </div>
 
         <div className="mt-10 pt-6 border-t-[2px] border-white/20 flex flex-col sm:flex-row justify-between items-center gap-4">

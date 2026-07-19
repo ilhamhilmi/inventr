@@ -12,9 +12,6 @@ export default function NeoNavbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-lg">
-              I
-            </div>
             <span className="font-black text-2xl tracking-tight">INVENTR</span>
           </Link>
 
@@ -52,19 +49,16 @@ export default function NeoNavbar() {
             className="md:hidden w-10 h-10 border-[3px] border-black flex flex-col items-center justify-center gap-1"
           >
             <span
-              className={`block w-5 h-[3px] bg-black transition-all ${
-                mobileMenuOpen ? "rotate-45 translate-y-[3px]" : ""
-              }`}
+              className={`block w-5 h-[3px] bg-black transition-all ${mobileMenuOpen ? "rotate-45 translate-y-[3px]" : ""
+                }`}
             />
             <span
-              className={`block w-5 h-[3px] bg-black transition-all ${
-                mobileMenuOpen ? "opacity-0" : ""
-              }`}
+              className={`block w-5 h-[3px] bg-black transition-all ${mobileMenuOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`block w-5 h-[3px] bg-black transition-all ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-[3px]" : ""
-              }`}
+              className={`block w-5 h-[3px] bg-black transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-[3px]" : ""
+                }`}
             />
           </button>
         </div>
@@ -72,9 +66,8 @@ export default function NeoNavbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden border-t-[3px] border-black bg-white transition-all ${
-          mobileMenuOpen ? "max-h-80 py-4" : "max-h-0 overflow-hidden"
-        }`}
+        className={`md:hidden border-t-[3px] border-black bg-white transition-all ${mobileMenuOpen ? "max-h-80 py-4" : "max-h-0 overflow-hidden"
+          }`}
       >
         <div className="px-4 space-y-3">
           <Link
