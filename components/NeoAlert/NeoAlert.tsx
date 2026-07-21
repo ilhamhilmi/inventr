@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 interface NeoAlertProps {
   message?: string;
   title?: string;
-  autoCloseDuration?: number; // in milliseconds, 0 = no auto-close
+  autoCloseDuration?: number;
   onClose?: () => void;
 }
 
 export default function NeoAlert({
   message = "This web is currently being built. Some features may not be available yet.",
   title = "Under Construction",
-  autoCloseDuration = 8000,
+  autoCloseDuration = 8000, //Auto close duration
   onClose,
 }: NeoAlertProps) {
   const [visible, setVisible] = useState(true);
