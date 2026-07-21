@@ -12,7 +12,7 @@ interface NeoAlertProps {
 export default function NeoAlert({
   message = "This web is currently being built. Some features may not be available yet.",
   title = "Under Construction",
-  autoCloseDuration = 8000, //Auto close duration
+  autoCloseDuration = 8000, //Auto close alert duration
   onClose,
 }: NeoAlertProps) {
   const [visible, setVisible] = useState(true);
