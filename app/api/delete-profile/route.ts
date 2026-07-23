@@ -1,55 +1,52 @@
-import { db } from "@/lib/db";
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 export async function DELETE() {
-    try {
-        const cookieStore = await cookies()
-        const userId = cookieStore.get("user_id")
+  try {
+    const cookieStore = await cookies();
+    const userId = cookieStore.get("user_id");
 
-        if (!userId) {
-            return NextResponse.json(
-                { message: "Unauthorized" },
-                { status: 401 }
-            )
-        }
-
-        const [rows]: any = await db.query(
-            "SELECT username, password FROM users WHERE id = ?",
-            [userId.value]
-        )
-
-        if (rows.length === 0) {
-            return NextResponse.json(
-                { message: "Account not found" },
-                { status: 404 }
-            )
-        }
-
-        const [result]: any = 
-        await db.query(
-            "DELETE FROM products WHERE user_id = ?",
-            [userId.value]
-        )
-        
-        await db.query(
-            "DELETE FROM users WHERE id = ?",
-            [userId.value]
-        )
-
-        const response = NextResponse.json({
-            success: true,
-            message: "Account Successfully Deleted",
-        })
-
-        response.cookies.delete("user_id");
-        response.cookies.delete("user_role");
-
-        return response
-    } catch(error){
-        return NextResponse.json(
-            {message: "Server error"},
-            {status: 500}
-        )
+    if (!userId) {
+      return NextResponse.json(
+        { message: "Unauthorized" },
+        { status: 401 }
+      );
     }
+
+    const existingUser = await prisma.users.findUnique({
+      where: { id: Number(userId.value) },
+    });
+
+    if (!existingUser) {
+      return NextResponse.json(
+        { message: "Account not found" },
+        { status: 404 }
+      );
+    }
+
+    // Delete all products belonging to the user first, then delete the user
+    await prisma.products.deleteMany({
+      where: { user_id: Number(userId.value) },
+    });
+
+    await prisma.users.delete({
+      where: { id: Number(userId.value) },
+    });
+
+    const response = NextResponse.json({
+      success: true,
+      message: "Account Successfully Deleted",
+    });
+
+    response.cookies.delete("user_id");
+    response.cookies.delete("user_role");
+
+    return response;
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Server error" },
+      { status: 500 }
+    );
+  }
 }

@@ -1,15 +1,8 @@
 import Link from "next/link";
 
-const stats = [
-  { label: "Active Users", value: "2.4K+" },
-  { label: "Items Tracked", value: "85K+" },
-  { label: "Low Stock Alerts", value: "1.2K+" },
-  { label: "Uptime", value: "99.9%" },
-];
-
 export default function NeoHero() {
   return (
-    <section className="relative pt-20 sm:pt-24">
+    <section className="relative pt-16 sm:pt-24">
       {/* Decorative background shapes */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-neo-yellow border-[3px] border-black -z-10" />
       <div className="absolute top-40 left-0 w-48 h-48 bg-neo-cyan border-[3px] border-black -z-10" />
@@ -61,7 +54,7 @@ export default function NeoHero() {
           </div>
 
           {/* Stats Row */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          {/* <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -73,7 +66,7 @@ export default function NeoHero() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
