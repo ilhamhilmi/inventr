@@ -1,12 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
-
-import showPass from "@/public/password/eye-svgrepo-com.svg"
-import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
-
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import toast from "react-hot-toast"
 import { useRouter } from "next/navigation"
 
@@ -58,14 +54,6 @@ export default function RegisterOperator() {
 
             <div className="w-full max-w-md mx-auto px-4">
                 <div className="border-[3px] border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8">
-                    {/* Logo */}
-                    <div className="flex items-center justify-center gap-2 mb-6">
-                        <div className="w-10 h-10 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-lg">
-                            I
-                        </div>
-                        <span className="font-black text-2xl tracking-tight">INVENTR</span>
-                    </div>
-
                     <h1 className="font-black text-2xl uppercase text-center mb-6">Create New Account</h1>
 
                     <div className="space-y-4">
@@ -94,9 +82,9 @@ export default function RegisterOperator() {
                                 <button
                                     type='button'
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className='absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 border-[2px] border-black flex items-center justify-center hover:bg-gray-100 transition-colors'
+                                    className='absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 border-[2px] border-black flex items-center justify-center hover:bg-gray-100 transition-colors bg-white'
                                 >
-                                    <Image src={showPassword ? hidePass : showPass} alt={showPassword ? "Hide password" : "Show password"} width={18} height={18} />
+                                    {showPassword ? <IoMdEyeOff size={18} /> : <IoMdEye size={18} />}
                                 </button>
                             </div>
                         </div>

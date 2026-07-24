@@ -1,11 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
-
-import showPass from "@/public/password/eye-svgrepo-com.svg"
-import hidePass from "@/public/password/eye-slash-svgrepo-com.svg"
 
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
