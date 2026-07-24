@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from "motion/react";
 
 export default function NeoHero() {
   return (
@@ -11,9 +12,18 @@ export default function NeoHero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           {/* Tag */}
-          <div className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-neo-yellow mb-6">
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-neo-yellow mb-6">
             Multi User System
-          </div>
+          </motion.div>
 
           {/* Headline */}
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tight">

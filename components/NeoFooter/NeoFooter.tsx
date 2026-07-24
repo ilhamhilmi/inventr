@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaArrowUp } from "react-icons/fa";
 
 export default function NeoFooter() {
   return (
@@ -84,15 +85,9 @@ export default function NeoFooter() {
             &copy; {new Date().getFullYear()} Inventr. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <span className="w-8 h-8 border-[2px] border-white/40 flex items-center justify-center text-xs font-bold opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
-              TW
-            </span>
-            <span className="w-8 h-8 border-[2px] border-white/40 flex items-center justify-center text-xs font-bold opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
-              GH
-            </span>
-            <span className="w-8 h-8 border-[2px] border-white/40 flex items-center justify-center text-xs font-bold opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
-              LI
-            </span>
+            <Link href="/" className="w-8 h-8 border-[2px] border-white/40 flex items-center justify-center text-xs font-bold opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
+              <FaArrowUp />
+            </Link>
           </div>
         </div>
       </div>

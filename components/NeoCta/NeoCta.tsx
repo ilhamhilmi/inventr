@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import Link from "next/link";
 
 const steps = [
@@ -24,9 +25,18 @@ export default function NeoCta() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-white mb-4">
+            <motion.div
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-white mb-4">
               How It Works
-            </div>
+            </motion.div>
             <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight leading-[1.1]">
               Start in
               <span className="block bg-white px-2 border-[3px] border-black inline-block mt-2 -rotate-1">

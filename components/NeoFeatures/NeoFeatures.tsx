@@ -1,3 +1,6 @@
+import { motion } from "motion/react";
+
+
 const features = [
   {
     number: "01",
@@ -29,9 +32,18 @@ export default function NeoFeatures() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-neo-cyan mb-4">
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-neo-cyan mb-4">
             Why Choose Inventr
-          </div>
+          </motion.div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.1]">
             Built for{" "}
             <span className="bg-neo-pink px-2 border-[3px] border-black inline-block rotate-1">
