@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import SearchIcon from "@/public/Search/search-svgrepo-com.svg"
+import userIcon from "@/public/UserProfile/user-icon-svgrepo-com.svg"
+import { IoSearchSharp } from "react-icons/io5";
 
 export default function Inventory() {
     const [product, setProduct] = useState<any>([])
@@ -130,9 +131,6 @@ export default function Inventory() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <Link href="/" className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-sm">
-                                I
-                            </div>
                             <span className="font-black text-lg tracking-tight">INVENTR</span>
                         </Link>
 
@@ -141,16 +139,12 @@ export default function Inventory() {
                                 className="font-bold text-xs uppercase tracking-wider px-4 py-2 bg-neo-yellow border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-100">
                                 + Add Product
                             </Link>
-                            <div className="flex items-center gap-2">
-                                <Link href="/user-profile"
-                                    className="w-8 h-8 border-[3px] border-black flex items-center justify-center font-black text-xs hover:bg-gray-100 transition-colors">
-                                    U
-                                </Link>
-                                <Link href="/"
-                                    className="w-8 h-8 border-[3px] border-black flex items-center justify-center font-black text-xs hover:bg-gray-100 transition-colors">
-                                    H
-                                </Link>
-                            </div>
+                            <Link
+                                href="/user-profile"
+                                className="border-2 p-2 bg-neo-lime border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
+                            >
+                                <Image src={userIcon} alt="userIcon" width={20} height={20} />
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -192,7 +186,7 @@ export default function Inventory() {
                             onClick={searchProducts}
                             className="px-4 border-[3px] border-black bg-black hover:bg-gray-800 transition-colors"
                         >
-                            <Image src={SearchIcon} alt="Search" width={20} height={20} className="invert" />
+                            <IoSearchSharp size={18} className="text-white" />
                         </button>
                     </div>
 

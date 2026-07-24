@@ -1,10 +1,19 @@
 "use client"
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import userIcon from "@/public/UserProfile/user-icon-svgrepo-com.svg"
 
 export default function NeoNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const userId = document.cookie.includes("user_id")
+
+    setIsLoggedIn(userId)
+  }, [])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b-[3px] border-black">
@@ -23,24 +32,30 @@ export default function NeoNavbar() {
             >
               Features
             </Link>
-            <Link
-              href="/inventory"
-              className="font-bold text-sm uppercase tracking-wider hover:underline underline-offset-4 decoration-[3px]"
+
+            {isLoggedIn ? (<Link
+              href="/user-profile"
+              className="border-2 p-2 bg-neo-lime border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
             >
-              Inventory
-            </Link>
-            <Link
+              <Image src={userIcon} alt="userIcon" width={20} height={20} />
+            </Link>) : (<Link
               href="/login-operator"
               className="font-bold text-sm uppercase tracking-wider hover:underline underline-offset-4 decoration-[3px]"
             >
               Login
-            </Link>
-            <Link
+            </Link>)}
+
+            {isLoggedIn ? (<Link
+              href="/inventory"
+              className="font-bold text-sm uppercase tracking-wider px-5 py-2.5 bg-neo-pink border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
+            >
+              Inventory
+            </Link>) : (<Link
               href="/register-operator"
               className="font-bold text-sm uppercase tracking-wider px-5 py-2.5 bg-neo-pink border-[3px] border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
             >
               Get Started
-            </Link>
+            </Link>)}
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,6 +111,6 @@ export default function NeoNavbar() {
           </Link>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }

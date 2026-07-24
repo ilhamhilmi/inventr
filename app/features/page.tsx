@@ -1,61 +1,44 @@
-"use client"
 import Link from "next/link"
-
-const featuresList = [
-  {
-    title: "Multi-User Access",
-    desc: "Invite your team members, assign roles, and manage permissions. Everyone works together seamlessly.",
-    color: "bg-neo-yellow",
-  },
-  {
-    title: "Real-Time Tracking",
-    desc: "Live updates on stock levels. Get notified when items run low. Never miss a restock again.",
-    color: "bg-neo-pink",
-  },
-  {
-    title: "Smart Analytics",
-    desc: "Visualize your inventory data. Track trends, forecast demand, and make informed decisions.",
-    color: "bg-neo-cyan",
-  },
-  {
-    title: "Search & Filter",
-    desc: "Quickly find any product with powerful search and filtering capabilities.",
-    color: "bg-neo-lime",
-  },
-  {
-    title: "Secure Login",
-    desc: "Role-based authentication system. Your data stays safe and accessible only to authorized users.",
-    color: "bg-neo-orange",
-  },
-  {
-    title: "Export Data",
-    desc: "Export your inventory data anytime. Keep backups and share reports with your team.",
-    color: "bg-neo-purple",
-  },
-];
+import NeoNavbar from "@/components/NeoNavbar/NeoNavbar";
 
 export default function FeaturesPage() {
+    const featuresList = [
+        {
+            title: "Multi-User Access",
+            desc: "Invite your team members, assign roles, and manage permissions. Everyone works together seamlessly.",
+            color: "bg-neo-yellow",
+        },
+        {
+            title: "Real-Time Tracking",
+            desc: "Live updates on stock levels. Get notified when items run low. Never miss a restock again.",
+            color: "bg-neo-pink",
+        },
+        {
+            title: "Smart Analytics",
+            desc: "Visualize your inventory data. Track trends, forecast demand, and make informed decisions.",
+            color: "bg-neo-cyan",
+        },
+        {
+            title: "Search & Filter",
+            desc: "Quickly find any product with powerful search and filtering capabilities.",
+            color: "bg-neo-lime",
+        },
+        {
+            title: "Secure Login",
+            desc: "Role-based authentication system. Your data stays safe and accessible only to authorized users.",
+            color: "bg-neo-orange",
+        },
+        {
+            title: "Export Data",
+            desc: "Export your inventory data anytime. Keep backups and share reports with your team.",
+            color: "bg-neo-purple",
+        },
+    ];
+
     return (
         <div className="min-h-screen bg-white text-black font-['Inter',sans-serif]">
-            {/* Back Navigation */}
-            <nav className="border-b-[3px] border-black bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-sm">
-                                I
-                            </div>
-                            <span className="font-black text-lg tracking-tight">INVENTR</span>
-                        </Link>
-                        <Link href="/login-operator"
-                            className="font-bold text-xs uppercase tracking-wider px-4 py-2 bg-neo-pink border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] transition-all duration-100">
-                            Login
-                        </Link>
-                    </div>
-                </div>
-            </nav>
-
-            <section className="py-16 md:py-24">
+            <NeoNavbar />
+            <section className="pt-32 pb-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <div className="inline-block border-[3px] border-black px-4 py-1.5 font-bold text-xs uppercase tracking-[0.15em] bg-neo-yellow mb-4">
