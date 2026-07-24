@@ -53,14 +53,6 @@ export default function InputProduct() {
 
             <div className="w-full max-w-md mx-auto px-4">
                 <div className="border-[3px] border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8">
-                    {/* Logo */}
-                    <div className="flex items-center justify-center gap-2 mb-6">
-                        <div className="w-10 h-10 bg-neo-yellow border-[3px] border-black flex items-center justify-center font-black text-lg">
-                            I
-                        </div>
-                        <span className="font-black text-2xl tracking-tight">INVENTR</span>
-                    </div>
-
                     <h1 className="font-black text-2xl uppercase text-center mb-6">Input Product</h1>
 
                     <div className="space-y-4">

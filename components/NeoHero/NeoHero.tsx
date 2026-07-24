@@ -52,21 +52,6 @@ export default function NeoHero() {
               Open Inventory
             </Link>
           </div>
-
-          {/* Stats Row */}
-          {/* <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="border-[3px] border-black p-4 bg-white shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]"
-              >
-                <div className="text-2xl font-black">{stat.value}</div>
-                <div className="text-xs font-bold uppercase tracking-wider mt-1">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div> */}
         </div>
       </div>
     </section>

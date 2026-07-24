@@ -9,12 +9,12 @@ const steps = [
   {
     step: "02",
     title: "Add Your Products",
-    desc: "Input items with quantities, categories, and prices.",
+    desc: "Input items with quantities and prices.",
   },
   {
     step: "03",
     title: "Manage & Scale",
-    desc: "Track stock, invite users, and grow your inventory.",
+    desc: "Track stock, Find products, and grow your inventory.",
   },
 ];
 
