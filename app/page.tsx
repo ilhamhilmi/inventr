@@ -10,7 +10,7 @@ import NeoAlert from "@/components/NeoAlert/NeoAlert";
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black font-['Inter',sans-serif]">
-      {/* <NeoAlert /> */}
+      <NeoAlert />
       <NeoNavbar />
       <NeoHero />
       <NeoFeatures />
